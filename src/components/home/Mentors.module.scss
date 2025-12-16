@@ -12,12 +12,13 @@
 
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-bottom: $spacing-8;
+    text-align: center;
 
     @include sm {
-        justify-content: flex-start;
+        justify-content: center;
         gap: $spacing-4;
     }
 }
@@ -34,42 +35,67 @@
 
 .grid {
     display: flex;
-    gap: $spacing-8;
+    gap: $spacing-6;
     overflow-x: auto;
-    padding-bottom: $spacing-8; // Space for scrollbar
+    overflow-y: hidden;
+    padding: $spacing-4 $spacing-2 $spacing-8 $spacing-2;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 
-    // Hide scrollbar for cleaner look but keep functionality
+    // Better scrollbar styling
     &::-webkit-scrollbar {
-        height: 6px;
+        height: 8px;
     }
 
     &::-webkit-scrollbar-track {
-        background: transparent;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+        margin: 0 $spacing-4;
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: rgba($primary, 0.2);
-        border-radius: 3px;
+        background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+        border-radius: 4px;
+
+        &:hover {
+            background: linear-gradient(90deg, #2563EB, #7C3AED);
+        }
     }
 
-    @include sm {
-        // Reset grid styles if any were inherited, though we are replacing them
+    // Mobile: Show hint of next card
+    @media (max-width: 640px) {
+        padding-left: $spacing-4;
+        padding-right: $spacing-4;
+        gap: $spacing-4;
     }
 
-    @include lg {
-        // Reset grid styles
+    @include md {
+        gap: $spacing-8;
+        padding: 0 0 $spacing-4 0;
     }
 }
 
 .mentorWrapper {
-    flex: 0 0 300px; // Fixed width for items
-    scroll-snap-align: start;
+    flex: 0 0 auto;
+    width: calc(100vw - 80px); // Full width on mobile with padding
+    max-width: 320px;
+    scroll-snap-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    transition: transform 0.3s ease;
+
+    @media (max-width: 640px) {
+        width: calc(100vw - 64px);
+    }
+
+    @include md {
+        flex: 0 0 300px;
+        width: 300px;
+        scroll-snap-align: start;
+    }
 }
 
 .imageCircle {
@@ -117,10 +143,10 @@
 
 .videoThumbnail {
     width: 100%;
-    max-width: 250px;
+    max-width: 100%;
     aspect-ratio: 16/9;
     background-color: #1E293B;
-    border-radius: 8px;
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -129,6 +155,12 @@
     position: relative;
     cursor: pointer;
     overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+    @include md {
+        max-width: 280px;
+        border-radius: 8px;
+    }
 
     &:hover .playButton {
         transform: scale(1.1);
@@ -144,4 +176,13 @@
 .videoLabel {
     font-size: 0.75rem;
     color: #94A3B8;
+}
+
+.videoIframe {
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }

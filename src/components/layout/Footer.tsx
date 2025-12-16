@@ -1,10 +1,61 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Youtube, CheckCircle, AlertCircle } from 'lucide-react';
 import styles from './Footer.module.scss';
 import { Button } from '../ui/Button';
 
 export const Footer = () => {
+    const [email, setEmail] = useState('');
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+    const handleNewsletterSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        if (!email || !email.includes('@')) {
+            setStatus('error');
+            return;
+        }
+
+        setStatus('loading');
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    fullName: 'Newsletter Subscriber',
+                    email: email,
+                    phone: 'N/A',
+                    childName: '',
+                    grade: 'Newsletter',
+                    message: 'Newsletter subscription from footer',
+                    source: 'Footer Newsletter',
+                    timestamp: new Date().toISOString()
+                })
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success !== false) {
+                setStatus('success');
+                setEmail('');
+                setTimeout(() => setStatus('idle'), 3000);
+            } else {
+                setStatus('error');
+                setTimeout(() => setStatus('idle'), 3000);
+            }
+
+        } catch (error) {
+            console.error('Error subscribing:', error);
+            setStatus('error');
+            setTimeout(() => setStatus('idle'), 3000);
+        }
+    };
+
     return (
         <footer className={styles.footer}>
             <div className={styles.container}>
@@ -17,10 +68,10 @@ export const Footer = () => {
                             Join us in our journey of excellence.
                         </p>
                         <div className={styles.socials}>
-                            <a href="#" aria-label="Facebook"><Facebook size={20} /></a>
-                            <a href="#" aria-label="Twitter"><Twitter size={20} /></a>
-                            <a href="#" aria-label="Instagram"><Instagram size={20} /></a>
-                            <a href="#" aria-label="LinkedIn"><Linkedin size={20} /></a>
+                            <a href="https://www.facebook.com/share/17nuSeiQGP/" target='blank' aria-label="Facebook"><Facebook size={20} /></a>
+                            <a href="https://www.youtube.com/@learnerspuc6316" target='blank' aria-label="Youtube"><Youtube size={20} /></a>
+                            <a href="https://www.instagram.com/learners_global_school_mysuru?igsh=MTk5aXFyYm8zdG0zdg==" target='blank' aria-label="Instagram"><Instagram size={20} /></a>
+                            <a href="https://www.linkedin.com/company/learners-digital/" target='blank' aria-label="LinkedIn"><Linkedin size={20} /></a>
                         </div>
                     </div>
 
@@ -46,7 +97,7 @@ export const Footer = () => {
                             </li>
                             <li>
                                 <Phone size={18} />
-                                <span>+91 98765 43210</span>
+                                <span>+91 9916933202</span>
                             </li>
                             <li>
                                 <Mail size={18} />
@@ -59,17 +110,37 @@ export const Footer = () => {
                     <div className={styles.column}>
                         <h4 className={styles.subheading}>Newsletter</h4>
                         <p className={styles.text}>Subscribe to get the latest news and updates.</p>
-                        <form className={styles.newsletterForm}>
+                        <form className={styles.newsletterForm} onSubmit={handleNewsletterSubmit}>
                             <input
                                 type="email"
                                 placeholder="Your email address"
                                 className={styles.input}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                disabled={status === 'loading'}
                                 required
                             />
-                            <Button type="submit" variant="primary" size="sm">
-                                Subscribe
+                            <Button
+                                type="submit"
+                                variant="primary"
+                                size="sm"
+                                disabled={status === 'loading'}
+                            >
+                                {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
                             </Button>
                         </form>
+                        {status === 'success' && (
+                            <div className={styles.successMsg}>
+                                <CheckCircle size={16} />
+                                <span>Subscribed!</span>
+                            </div>
+                        )}
+                        {status === 'error' && (
+                            <div className={styles.errorMsg}>
+                                <AlertCircle size={16} />
+                                <span>Failed. Try again.</span>
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -80,3 +151,4 @@ export const Footer = () => {
         </footer>
     );
 };
+

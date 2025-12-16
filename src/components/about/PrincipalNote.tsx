@@ -22,11 +22,12 @@ export const PrincipalNote = () => {
                 <div className={styles.content}>
                     <div className={styles.label}>Principal's Desk</div>
 
-                    <blockquote className={styles.quote}>
-                        "I believe in the reciprocal nature of teaching, where students not only learn from me but also inspire and energize me every day."
-                    </blockquote>
+
 
                     <div className={styles.text}>
+                        <p>
+                            "I believe in the reciprocal nature of teaching, where students not only learn from me but also inspire and energize me every day."
+                        </p>
                         <p>
                             My Learners journey started 10 years ago when we first setup Learners PU school from the ground up with limited resources and just a few students. I find immense joy in the vibrant energy students and children bring to the classroom.
                         </p>

@@ -39,7 +39,14 @@ export const ConnectHero = () => {
                         <p className={styles.cardDesc}>
                             Passionate about education? Explore open positions and join our team of dedicated educators.
                         </p>
-                        <a href="#" className={styles.link}>View Openings <ArrowRight size={16} /></a>
+                        <a
+                            href="https://wa.me/919916933202?text=Hi%2C%20I%20would%20like%20to%20apply%20for%20a%20teaching%20position%20at%20Learners%20Global%20School.%20Please%20find%20my%20resume%20attached."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.link}
+                        >
+                            View Openings <ArrowRight size={16} />
+                        </a>
                     </div>
 
                     <div className={styles.card}>

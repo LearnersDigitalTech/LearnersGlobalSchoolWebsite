@@ -44,7 +44,7 @@ const facilities = [
         category: 'Health & Nutrition',
         description: 'We believe in fueling the mind and body. Our hygienic, modern canteen serves nutritious, balanced meals prepared fresh daily, ensuring students have the energy to excel throughout the day.',
         features: ['Hygienic Kitchen', 'Balanced Diet Menu', 'Spacious Dining Hall', 'Cashless Payments'],
-        image: '/images/hero_students.png' // Placeholder
+        image: '/images/Canteen.jpeg' // Placeholder
     }
 ];
 

@@ -28,7 +28,7 @@ export const LocationSection = () => {
                         <p>CA Site #1, Hanchya Main Rd</p>
                         <p>Sathgalli, Mysuru, Karnataka 570029</p>
                     </div>
-                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className={styles.directionsLink}>
+                    <a href="https://maps.app.goo.gl/i5uAW27zBTgPYBpT9" target="_blank" rel="noopener noreferrer" className={styles.directionsLink}>
                         Get Directions <ArrowRight size={20} />
                     </a>
                 </div>
