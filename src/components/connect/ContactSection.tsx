@@ -225,7 +225,7 @@ export const ContactSection = () => {
                             </div>
                             <div className={styles.blockContent}>
                                 <h4>Email Us</h4>
-                                <p>admissions@lgs.edu.in</p>
+                                <p>admissions@learnersdigital.com</p>
                             </div>
                         </div>
                     </div>

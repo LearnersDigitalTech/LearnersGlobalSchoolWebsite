@@ -101,7 +101,7 @@ export const Footer = () => {
                             </li>
                             <li>
                                 <Mail size={18} />
-                                <span>admissions@lgs.edu.in</span>
+                                <span>admissions@learnersdigital.com</span>
                             </li>
                         </ul>
                     </div>
