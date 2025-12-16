@@ -6,6 +6,8 @@ import { Footer } from '@/components/layout/Footer';
 import { NewsletterSection } from '@/components/connect/NewsletterSection';
 import styles from './page.module.scss';
 
+
+
 export default function NewsletterPage() {
     return (
         <main className={styles.main}>

@@ -9,6 +9,8 @@ import { LocationSection } from '@/components/connect/LocationSection';
 import { SocialGrid } from '@/components/connect/SocialGrid';
 import styles from './page.module.scss';
 
+
+
 export default function Connect() {
     return (
         <main className={styles.main}>

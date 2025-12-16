@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import styles from './page.module.scss';
@@ -8,6 +9,18 @@ import { AboutHero } from '@/components/about/AboutHero';
 import { FounderNote } from '@/components/about/FounderNote';
 import { PrincipalNote } from '@/components/about/PrincipalNote';
 import { RecentlySection } from '@/components/about/RecentlySection';
+
+export const metadata: Metadata = {
+    title: "About Us | Learners Global School Sathagalli - Mission, Vision & Faculty",
+    description: "Learn about Learners Global School's mission to foster intellectual curiosity and emotional intelligence. Meet our experienced faculty and leadership team dedicated to shaping future leaders in Mysore.",
+    keywords: ["about Learners Global School", "school mission vision", "experienced faculty Mysore", "CBSE school leadership", "educational excellence"],
+    openGraph: {
+        title: "About Learners Global School | Mission, Vision & Faculty",
+        description: "Discover our mission to nurture compassionate global leaders through educational excellence in Mysore.",
+        url: "https://learnersglobalschool.com/about",
+        images: [{ url: "/LL.png", width: 1200, height: 630, alt: "About Learners Global School" }],
+    },
+};
 
 export default function About() {
     return (

@@ -1,5 +1,5 @@
-
 import React from 'react';
+import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import styles from './page.module.scss';
@@ -7,6 +7,18 @@ import { CoursesHero } from '@/components/courses/CoursesHero';
 import { StreamOverview } from '@/components/courses/StreamOverview';
 import { CurriculumSection } from '@/components/courses/CurriculumSection';
 import { Button } from '@/components/ui/Button';
+
+export const metadata: Metadata = {
+    title: "Courses & Admissions | CBSE Curriculum Pre-KG to Class 12 | Learners Global School",
+    description: "Explore our comprehensive CBSE curriculum from Pre-KG to Class 12. Science, Commerce, and Arts streams available. Admissions open for 2024-25. Apply now for quality education in Mysore.",
+    keywords: ["CBSE curriculum", "admissions Mysore", "Pre-KG to Class 12", "Science stream", "Commerce stream", "Arts stream", "school admissions", "JEE NEET coaching"],
+    openGraph: {
+        title: "Courses & Admissions | CBSE Pre-KG to Class 12",
+        description: "Comprehensive CBSE education with Science, Commerce & Arts streams. Admissions open for 2024-25 in Mysore.",
+        url: "https://learnersglobalschool.com/courses-admissions",
+        images: [{ url: "/LL.png", width: 1200, height: 630, alt: "Courses and Admissions" }],
+    },
+};
 
 export default function CoursesAdmissions() {
     const curriculumData = [

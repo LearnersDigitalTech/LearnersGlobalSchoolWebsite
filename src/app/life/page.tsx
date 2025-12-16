@@ -10,6 +10,8 @@ import { CampusGallery } from '@/components/life/CampusGallery';
 import { MediaRecognition } from '@/components/life/MediaRecognition';
 import styles from './page.module.scss';
 
+
+
 export default function Life() {
     const campusFacilities = [
         { title: 'Modern Labs', desc: 'Physics, Chemistry, and Biology labs equipped with latest apparatus.' },

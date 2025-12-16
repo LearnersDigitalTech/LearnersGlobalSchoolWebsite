@@ -1,9 +1,19 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import styles from './page.module.scss';
 import { Button } from '@/components/ui/Button';
 import { CheckCircle } from 'lucide-react';
+
+export const metadata: Metadata = {
+    title: "Thank You | Enquiry Submitted | Learners Global School Sathagalli",
+    description: "Thank you for your enquiry. Our admissions team will contact you shortly.",
+    robots: {
+        index: false,
+        follow: false,
+    },
+};
 
 export default function ThankYou() {
     return (

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
@@ -13,6 +14,18 @@ import styles from "./page.module.scss";
 
 import { EnquiryPopup } from "@/components/home/EnquiryPopup";
 import { Announcements } from "@/components/home/Announcements";
+
+export const metadata: Metadata = {
+  title: "Learners Global School Sathagalli | Premier CBSE School in Mysore",
+  description: "Welcome to Learners Global School Sathagalli - A leading CBSE school in Mysore offering world-class education from Pre-KG to Class 12. Admissions open for 2024-25. Shaping future leaders through innovative learning.",
+  keywords: ["CBSE school Mysore", "best school Sathagalli", "admissions open Mysore", "top school in Mysore", "holistic education", "international curriculum"],
+  openGraph: {
+    title: "Learners Global School Sathagalli | Premier CBSE School in Mysore",
+    description: "Welcome to Learners Global School - Shaping future leaders through innovative CBSE education in Mysore.",
+    url: "https://learnersglobalschool.com",
+    images: [{ url: "/LL.png", width: 1200, height: 630, alt: "Learners Global School" }],
+  },
+};
 
 export default function Home() {
   return (

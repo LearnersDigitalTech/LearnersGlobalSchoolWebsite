@@ -11,7 +11,7 @@ export const LocationSection = () => {
                 {/* Left: Map */}
                 <div className={styles.mapContainer}>
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.688636976786!2d77.3698663150821!3d28.61161398242605!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce561e1e0c711%3A0x6d3d8e5d3e5e5e5e!2sSector%2062%2C%20Noida%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1625123456789!5m2!1sen!2sin"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3704.890621350378!2d76.70083249999999!3d12.332745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf71616ce77101%3A0x49dced4de0784380!2sLearners%20Global%20School%20%26%20PU%20College!5e1!3m2!1sen!2sin!4v1764243660879!5m2!1sen!2sin"
                         allowFullScreen
                         loading="lazy"
                     ></iframe>
