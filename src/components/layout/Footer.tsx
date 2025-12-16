@@ -83,7 +83,7 @@ export const Footer = () => {
                             <li><Link href="/courses-admissions">Admissions</Link></li>
                             <li><Link href="/life">Life at Learners</Link></li>
                             <li><Link href="/connect">Careers</Link></li>
-                            <li><Link href="/privacy">Privacy Policy</Link></li>
+                            {/* <li><Link href="/privacy">Privacy Policy</Link></li> */}
                         </ul>
                     </div>
 
