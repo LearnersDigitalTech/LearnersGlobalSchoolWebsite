@@ -11,16 +11,18 @@ export const Hero = () => {
     const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
     const [isVirtualTourOpen, setIsVirtualTourOpen] = React.useState(false);
     const heroImages = [
+        '/images/Campus.jpeg',
         '/images/ashika.png'
     ];
 
     const heroCaptions = [
+        { title: 'Excellence', subtitle: 'In Education', details: null },
         {
-            title: 'STUDENT OF THE WEEK',
-            subtitle: 'Aarav Patel',
+            title: 'Student',
+            subtitle: 'of the day',
             details: {
-                name: 'Grade 5 -',
-                achievement: 'Excellence in Science'
+                name: 'Ashika Rao',
+                achievement: 'State Topper 2023'
             }
         }
     ];
