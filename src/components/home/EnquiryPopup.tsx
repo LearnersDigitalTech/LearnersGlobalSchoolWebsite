@@ -19,7 +19,9 @@ export const EnquiryPopup = () => {
     const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
-        // Show popup after a short delay, but only if not seen before
+        // Auto-show disabled - popup only shows when triggered by CTA buttons
+        // Uncomment below to re-enable auto-show behavior
+        /*
         const timer = setTimeout(() => {
             const hasSeenPopup = sessionStorage.getItem('hasSeenEnquiryPopup');
             if (!hasSeenPopup) {
@@ -29,6 +31,7 @@ export const EnquiryPopup = () => {
         }, 2000);
 
         return () => clearTimeout(timer);
+        */
     }, [openEnquiry]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

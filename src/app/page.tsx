@@ -13,6 +13,7 @@ import { StudentToast } from "@/components/ui/Toast";
 import styles from "./page.module.scss";
 
 import { EnquiryPopup } from "@/components/home/EnquiryPopup";
+import { EventPopup } from "@/components/home/EventPopup";
 import { Announcements } from "@/components/home/Announcements";
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main id="main-content" className={styles.main}>
+      <EventPopup />
       <EnquiryPopup />
       <Header />
       <Hero />
