@@ -8,7 +8,62 @@
 
 .container {
     @include container;
-    max-width: 800px;
+    max-width: 100%;
+}
+
+// Carousel Container
+.carouselContainer {
+    width: 100%;
+    overflow: hidden;
+    padding: $spacing-3 0;
+
+    // Mask to fade edges - very subtle on mobile for single card view
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), black 1%, black 99%, rgba(0, 0, 0, 0.3));
+
+    @include md {
+        padding: $spacing-4 0;
+        mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    }
+}
+
+.track {
+    display: flex;
+    gap: $spacing-3;
+    width: max-content;
+    // Faster animation on mobile for 3-4 second transitions per card
+    animation: scrollMobile 15s linear infinite;
+
+    @include md {
+        gap: $spacing-6;
+        // Slower animation on desktop
+        animation: scroll 50s linear infinite;
+    }
+
+    &:hover {
+        animation-play-state: paused;
+    }
+}
+
+// Mobile animation - faster for 3-4 second card transitions
+@keyframes scrollMobile {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+// Desktop animation - slower for smooth scrolling
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 .header {
@@ -31,10 +86,26 @@
 .card {
     background: white;
     border-radius: 20px;
-    padding: $spacing-6;
+    padding: $spacing-4;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(0, 0, 0, 0.06);
     position: relative;
+    // Mobile: almost full width for single card display
+    width: 95vw;
+    max-width: 500px;
+    flex-shrink: 0;
+
+    @include sm {
+        width: 85vw;
+        max-width: 600px;
+        padding: $spacing-6;
+    }
+
+    @include md {
+        padding: $spacing-6 $spacing-8;
+        width: 800px;
+        max-width: 800px;
+    }
 
     &::before {
         content: '';
@@ -46,8 +117,80 @@
         background: linear-gradient(180deg, #3B82F6 0%, #8B5CF6 100%);
     }
 
-    @include md {
-        padding: $spacing-6 $spacing-8;
+    // Blue variant (National Maths Day)
+    &.blue {
+        &::before {
+            background: linear-gradient(180deg, #3B82F6 0%, #2563EB 100%);
+        }
+
+        .dateBox {
+            box-shadow: 0 2px 12px rgba(59, 130, 246, 0.12);
+            border: 2px solid rgba(59, 130, 246, 0.1);
+
+            .month {
+                color: #3B82F6;
+            }
+
+            .day {
+                color: #1E40AF;
+            }
+        }
+
+        .eventDate {
+            color: #3B82F6;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
+            color: #3B82F6;
+        }
+
+        .ctaButton {
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+
+            &:hover {
+                box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+            }
+        }
+    }
+
+    // Purple variant (Annual Day)
+    &.purple {
+        &::before {
+            background: linear-gradient(180deg, #8B5CF6 0%, #7C3AED 100%);
+        }
+
+        .dateBox {
+            box-shadow: 0 2px 12px rgba(139, 92, 246, 0.12);
+            border: 2px solid rgba(139, 92, 246, 0.1);
+
+            .month {
+                color: #8B5CF6;
+            }
+
+            .day {
+                color: #6D28D9;
+            }
+        }
+
+        .eventDate {
+            color: #8B5CF6;
+        }
+
+        .badge {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(124, 58, 237, 0.1));
+            color: #8B5CF6;
+        }
+
+        .ctaButton {
+            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+
+            &:hover {
+                box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+            }
+        }
     }
 }
 
@@ -72,14 +215,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 12px rgba(59, 130, 246, 0.12);
-    border: 2px solid rgba(59, 130, 246, 0.1);
     flex-shrink: 0;
 
     .month {
         font-size: 0.75rem;
         font-weight: 700;
-        color: #3B82F6;
         text-transform: uppercase;
         letter-spacing: 1px;
     }
@@ -87,7 +227,6 @@
     .day {
         font-size: 2.5rem;
         font-weight: 800;
-        color: #1E40AF;
         line-height: 1;
         margin: 6px 0;
     }
@@ -119,7 +258,6 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #3B82F6;
     font-weight: 600;
     font-size: 0.9rem;
     margin-bottom: $spacing-2;
@@ -149,8 +287,6 @@
 .badge {
     display: inline-block;
     padding: 6px 12px;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-    color: #3B82F6;
     font-size: 0.7rem;
     font-weight: 700;
     border-radius: 100px;
@@ -183,18 +319,15 @@
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
     color: white;
     font-weight: 700;
     font-size: 0.9rem;
     border-radius: 10px;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 
     &:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
         gap: 12px;
     }
 
@@ -208,5 +341,47 @@
 
     &:hover svg {
         transform: translateX(3px);
+    }
+}
+
+// Navigation Dots
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: $spacing-4;
+    padding: $spacing-2 0;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.4);
+        transform: scale(1.2);
+    }
+
+    &.active {
+        width: 32px;
+        border-radius: 6px;
+        background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+    }
+
+    @include md {
+        width: 12px;
+        height: 12px;
+
+        &.active {
+            width: 40px;
+        }
     }
 }

@@ -56,7 +56,7 @@ export const Hero = () => {
                                 Virtual Tour
                             </Button>
                         </div>
-                        <div className={styles.stats}>
+                        {/* <div className={styles.stats}>
                             <div className={styles.statItem}>
                                 <span className={styles.statValue}>500+</span>
                                 <span className={styles.statLabel}>Students</span>
@@ -65,7 +65,7 @@ export const Hero = () => {
                                 <span className={styles.statValue}>1:12</span>
                                 <span className={styles.statLabel}>Teacher Ratio</span>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className={styles.imageContent}>
