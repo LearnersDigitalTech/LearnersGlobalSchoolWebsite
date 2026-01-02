@@ -41,7 +41,7 @@ export default function Home() {
       <Activities />
       <Clubs />
       <Affiliates />
-      <StudentToast />
+      {/* <StudentToast /> */}
       <Footer />
     </main>
   );

@@ -16,13 +16,13 @@ export const Hero = () => {
     ];
 
     const heroCaptions = [
-        { title: 'Excellence', subtitle: 'In Education', details: null },
+        { title: '1:12', subtitle: 'Student Teacher Ratio', details: null },
         {
             title: 'Student',
-            subtitle: 'of the day',
+            subtitle: 'of the week',
             details: {
-                name: 'Ashika Rao',
-                achievement: 'State Topper 2023'
+                name: 'Bhuvan',
+                achievement: 'Proficiency in Math'
             }
         }
     ];
@@ -86,7 +86,7 @@ export const Hero = () => {
 
                         {/* Floating elements for visual interest */}
                         <div className={`${styles.floatingCard} ${heroCaptions[currentImageIndex].details ? styles.expanded : ''}`}>
-                            <span className={styles.floatingIcon}>🎓</span>
+                            {/* <span className={styles.floatingIcon}>🎓</span> */}
                             <div>
                                 <p className={styles.floatingTitle}>{heroCaptions[currentImageIndex].title}</p>
                                 <p className={styles.floatingSubtitle}>{heroCaptions[currentImageIndex].subtitle}</p>
