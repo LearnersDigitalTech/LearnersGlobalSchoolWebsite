@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import styles from './AnnualDayGallery.module.scss';
 import { ChevronLeft, X, ChevronRight, Play, Download } from 'lucide-react';
@@ -42,6 +42,25 @@ export default function AnnualDayGallery() {
 
     // Minimum swipe distance (in px) 
     const minSwipeDistance = 50;
+
+    // Interactive Gradient Ref
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        const handleMouseMove = (e: MouseEvent) => {
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            container.style.setProperty('--mouse-x', `${x}px`);
+            container.style.setProperty('--mouse-y', `${y}px`);
+        };
+
+        container.addEventListener('mousemove', handleMouseMove);
+        return () => container.removeEventListener('mousemove', handleMouseMove);
+    }, []);
 
     const onTouchStart = (e: React.TouchEvent) => {
         setTouchEnd(null); // Reset
@@ -165,7 +184,7 @@ export default function AnnualDayGallery() {
     };
 
     return (
-        <section className={styles.section}>
+        <section ref={containerRef} className={styles.section}>
             <div className={styles.container}>
                 {/* Back Navigation */}
                 <div style={{ marginBottom: '2rem' }}>

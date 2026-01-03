@@ -3,7 +3,38 @@
 
 .section {
     padding: 64px 0;
-    background-color: #FFFFFF;
+    background-color: #f8fafc; // Light slate base
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    // Interactive gradient background
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0; // Covers the entire section
+        background: radial-gradient(circle 800px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                rgba(56, 189, 248, 0.15), // Light blue (Sky-400)
+                transparent 80%);
+        z-index: -1;
+        pointer-events: none;
+        transition: opacity 0.5s ease;
+    }
+
+    // Ambient background blobs
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+            radial-gradient(circle at 10% 20%, rgba(224, 242, 254, 0.4) 0%, transparent 40%),
+            radial-gradient(circle at 90% 80%, rgba(219, 234, 254, 0.4) 0%, transparent 40%);
+        z-index: -2;
+        pointer-events: none;
+    }
 }
 
 .container {

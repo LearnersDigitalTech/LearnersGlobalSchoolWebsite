@@ -5,6 +5,45 @@ import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import styles from './EventsGrid.module.scss';
 
+// const events = [
+//     {
+//         id: 1,
+//         title: "Learners Annual Day '25",
+//         category: 'Cultural',
+//         categoryClass: 'cultural',
+//         date: { day: '28', month: 'Dec' },
+//         description: 'A vibrant celebration of art, music, and dance featuring performances by students across all grades.',
+//         image: '/images/celestia.JPG'
+//     },
+//     {
+//         id: 2,
+//         title: 'Science Exhibition 2024',
+//         category: 'Academic',
+//         categoryClass: 'academic',
+//         date: { day: '22', month: 'Sep' },
+//         description: 'Showcasing innovative projects and models created by our budding scientists and engineers.',
+//         image: '/images/stem-lab.png'
+//     },
+//     {
+//         id: 3,
+//         title: 'Inter-School Sports Meet',
+//         category: 'Sports',
+//         categoryClass: 'sports',
+//         date: { day: '05', month: 'Oct' },
+//         description: 'Competing with top schools in the region in football, basketball, and athletics.',
+//         image: '/images/ground.jpeg'
+//     },
+//     {
+//         id: 4,
+//         title: 'Robotics Workshop',
+//         category: 'Workshop',
+//         categoryClass: 'workshop',
+//         date: { day: '12', month: 'Nov' },
+//         description: 'Hands-on workshop on building and programming autonomous robots for students of class 8-10.',
+//         image: '/images/smart-class.png'
+//     }
+// ];
+
 const events = [
     {
         id: 1,
@@ -14,33 +53,6 @@ const events = [
         date: { day: '28', month: 'Dec' },
         description: 'A vibrant celebration of art, music, and dance featuring performances by students across all grades.',
         image: '/images/celestia.JPG'
-    },
-    {
-        id: 2,
-        title: 'Science Exhibition 2024',
-        category: 'Academic',
-        categoryClass: 'academic',
-        date: { day: '22', month: 'Sep' },
-        description: 'Showcasing innovative projects and models created by our budding scientists and engineers.',
-        image: '/images/stem-lab.png'
-    },
-    {
-        id: 3,
-        title: 'Inter-School Sports Meet',
-        category: 'Sports',
-        categoryClass: 'sports',
-        date: { day: '05', month: 'Oct' },
-        description: 'Competing with top schools in the region in football, basketball, and athletics.',
-        image: '/images/ground.jpeg'
-    },
-    {
-        id: 4,
-        title: 'Robotics Workshop',
-        category: 'Workshop',
-        categoryClass: 'workshop',
-        date: { day: '12', month: 'Nov' },
-        description: 'Hands-on workshop on building and programming autonomous robots for students of class 8-10.',
-        image: '/images/smart-class.png'
     }
 ];
 
