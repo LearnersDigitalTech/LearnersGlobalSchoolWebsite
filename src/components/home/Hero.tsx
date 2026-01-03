@@ -12,7 +12,7 @@ export const Hero = () => {
     const [isVirtualTourOpen, setIsVirtualTourOpen] = React.useState(false);
     const heroImages = [
         '/images/Campus.jpeg',
-        '/images/ashika.png'
+        '/images/student-of-the-week/Bhuvan.png'
     ];
 
     const heroCaptions = [
@@ -85,8 +85,8 @@ export const Hero = () => {
                         </div>
 
                         {/* Floating elements for visual interest */}
-                        <div className={`${styles.floatingCard} ${heroCaptions[currentImageIndex].details ? styles.expanded : ''}`}>
-                            {/* <span className={styles.floatingIcon}>🎓</span> */}
+                        {/* <div className={`${styles.floatingCard} ${heroCaptions[currentImageIndex].details ? styles.expanded : ''}`}>
+                            
                             <div>
                                 <p className={styles.floatingTitle}>{heroCaptions[currentImageIndex].title}</p>
                                 <p className={styles.floatingSubtitle}>{heroCaptions[currentImageIndex].subtitle}</p>
@@ -97,7 +97,7 @@ export const Hero = () => {
                                     </div>
                                 )}
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

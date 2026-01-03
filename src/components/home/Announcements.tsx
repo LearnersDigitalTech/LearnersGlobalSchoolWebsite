@@ -26,38 +26,44 @@ const announcements = [
         title: 'Learners Celestia 2025   @ Kalamandira',
         date: 'Saturday, December 28th',
         description: 'Spectacular celebration of talent, achievements, and memorable performances.',
-        // badge: 'At Kalamandira',
         actionTitle: 'ANNUAL DAY CELEBRATION 2025',
         actionDescription: 'Experience an evening filled with music, dance, drama, and awards ceremony!',
         actionText: 'View Performance',
-        actionLink: '#',
+        actionLink: '/gallery/learners-annual-day-25',
         color: 'purple'
+    },
+    {
+        month: 'JAN',
+        day: '15',
+        year: '2026',
+        title: 'Admissions Open 2026-27',
+        date: 'Wednesday, January 15th',
+        description: 'Join the Learners community. Applications for the new academic year are now open.',
+        actionTitle: 'SECURE YOUR SEAT',
+        actionDescription: 'Early bird registration benefits available for a limited time. Apply now!',
+        actionText: 'Apply Now',
+        actionLink: '/admissions',
+        color: 'green'
     }
 ];
 
+import { motion } from 'framer-motion';
+
 export const Announcements = () => {
     const [activeIndex, setActiveIndex] = useState(0);
-    const trackRef = useRef<HTMLDivElement>(null);
-
-    // Handle manual navigation
-    const handleDotClick = (index: number) => {
-        setActiveIndex(index);
-        if (trackRef.current) {
-            const card = trackRef.current.children[index] as HTMLElement;
-            if (card) {
-                card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
-        }
-    };
 
     // Auto-update active index based on time
     useEffect(() => {
         const interval = setInterval(() => {
             setActiveIndex((prev) => (prev + 1) % announcements.length);
-        }, 4000); // Change every 4 seconds
+        }, 5000);
 
         return () => clearInterval(interval);
     }, []);
+
+    const handleDotClick = (index: number) => {
+        setActiveIndex(index);
+    };
 
     return (
         <section className={styles.section}>
@@ -67,9 +73,12 @@ export const Announcements = () => {
                 </div>
 
                 <div className={styles.carouselContainer}>
-                    <div className={styles.track} ref={trackRef}>
-                        {/* Render list twice for infinite scroll effect */}
-                        {[...announcements, ...announcements].map((announcement, index) => (
+                    <motion.div
+                        className={styles.track}
+                        animate={{ x: `-${activeIndex * 100}%` }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                    >
+                        {announcements.map((announcement, index) => (
                             <div key={index} className={`${styles.card} ${styles[announcement.color]}`}>
                                 <div className={styles.content}>
                                     {/* Date Box */}
@@ -92,7 +101,6 @@ export const Announcements = () => {
 
                                         {/* Action Info */}
                                         <div className={styles.testInfo}>
-                                            {/* <span className={styles.badge}>{announcement.badge}</span> */}
                                             <h4 className={styles.testTitle}>{announcement.actionTitle}</h4>
                                             <p className={styles.testDescription}>
                                                 {announcement.actionDescription}
@@ -111,7 +119,7 @@ export const Announcements = () => {
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* Navigation Dots */}

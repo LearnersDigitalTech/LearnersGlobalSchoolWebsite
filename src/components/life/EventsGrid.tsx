@@ -8,12 +8,12 @@ import styles from './EventsGrid.module.scss';
 const events = [
     {
         id: 1,
-        title: 'Annual Cultural Fest',
+        title: "Learners Annual Day '25",
         category: 'Cultural',
         categoryClass: 'cultural',
-        date: { day: '15', month: 'Aug' },
+        date: { day: '28', month: 'Dec' },
         description: 'A vibrant celebration of art, music, and dance featuring performances by students across all grades.',
-        image: '/images/hero_students.png'
+        image: '/images/celestia.JPG'
     },
     {
         id: 2,
@@ -56,32 +56,37 @@ export const EventsGrid = () => {
                 </div>
 
                 <div className={styles.grid}>
-                    {events.map((event) => (
-                        <div key={event.id} className={styles.card}>
-                            <div className={styles.imageWrapper}>
+                    {events.map((event) => {
+                        const slug = event.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+                        return (
+                            <a href={`/gallery/${slug}`} key={event.id} className={styles.card}>
                                 <Image
                                     src={event.image}
                                     alt={event.title}
                                     fill
                                     className={styles.image}
                                 />
+                                <div className={styles.overlay} />
+
                                 <div className={styles.dateBadge}>
                                     <span className={styles.day}>{event.date.day}</span>
                                     <span className={styles.month}>{event.date.month}</span>
                                 </div>
-                            </div>
-                            <div className={styles.content}>
-                                <span className={`${styles.category} ${styles[event.categoryClass]}`}>
-                                    {event.category}
-                                </span>
-                                <h3 className={styles.title}>{event.title}</h3>
-                                <p className={styles.description}>{event.description}</p>
-                                <a href="#" className={styles.readMore}>
-                                    Read More <ArrowRight size={14} />
-                                </a>
-                            </div>
-                        </div>
-                    ))}
+
+                                <div className={styles.content}>
+                                    <span className={styles.category}>
+                                        {event.category}
+                                    </span>
+                                    <h3 className={styles.title}>{event.title}</h3>
+                                    <p className={styles.description}>{event.description}</p>
+                                    <div className={styles.readMore}>
+                                        View Gallery <ArrowRight size={16} />
+                                    </div>
+                                </div>
+                            </a>
+                        );
+                    })}
                 </div>
             </div>
         </section>

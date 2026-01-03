@@ -36,53 +36,67 @@
     @include sm {
         grid-template-columns: repeat(2, 1fr);
     }
-
-    @include lg {
-        grid-template-columns: repeat(4, 1fr);
-    }
 }
 
 .card {
-    background: #FFFFFF;
-    border-radius: 16px;
+    position: relative;
+    background: #0F172A; // Fallback
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    height: 400px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    isolation: isolate;
+    text-decoration: none;
+    display: block;
 
     &:hover {
         transform: translateY(-5px);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-}
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
 
-.imageWrapper {
-    position: relative;
-    height: 200px;
-    width: 100%;
+        .image {
+            transform: scale(1.05);
+        }
+
+        .readMore {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 }
 
 .image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+// Gradient Overlay
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.2) 40%,
+            rgba(0, 0, 0, 0.85) 100%);
+    z-index: 1;
 }
 
 .dateBadge {
     position: absolute;
     top: $spacing-4;
-    left: $spacing-4;
-    background: #FFFFFF;
-    border-radius: 8px;
-    padding: 6px 12px;
+    right: $spacing-4;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 8px 14px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    backdrop-filter: blur(4px);
 
     .day {
         display: block;
-        font-size: 1.2rem;
+        font-size: 1.25rem;
         font-weight: 800;
         color: #0F172A;
         line-height: 1;
@@ -91,74 +105,76 @@
     .month {
         display: block;
         font-size: 0.75rem;
-        font-weight: 600;
-        color: $muted-foreground;
+        font-weight: 700;
+        color: #64748B;
         text-transform: uppercase;
+        margin-top: 2px;
     }
 }
 
 .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
     padding: $spacing-6;
-    flex: 1;
+    z-index: 2;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .category {
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     margin-bottom: $spacing-3;
-
-    &.cultural {
-        color: #EC4899;
-    }
-
-    // Pink
-    &.academic {
-        color: #3B82F6;
-    }
-
-    // Blue
-    &.sports {
-        color: #10B981;
-    }
-
-    // Green
-    &.workshop {
-        color: #F59E0B;
-    }
-
-    // Amber
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .title {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: #1E293B;
-    margin-bottom: $spacing-3;
-    line-height: 1.4;
+    color: white;
+    margin-bottom: $spacing-2;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .description {
-    font-size: 0.9rem;
-    color: $muted-foreground;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
     margin-bottom: $spacing-4;
-    flex: 1; // Push footer down if needed
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .readMore {
-    font-size: 0.85rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    color: $primary;
-    display: flex;
+    color: white;
+    display: inline-flex;
     align-items: center;
-    gap: 4px;
-    margin-top: auto;
+    gap: 6px;
+    opacity: 0.8;
+    transform: translateY(4px);
+    transition: all 0.3s ease;
 
-    &:hover {
-        text-decoration: underline;
+    svg {
+        transition: transform 0.3s ease;
+    }
+
+    &:hover svg {
+        transform: translateX(4px);
     }
 }

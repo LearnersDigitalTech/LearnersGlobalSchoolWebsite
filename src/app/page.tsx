@@ -13,6 +13,7 @@ import { StudentToast } from "@/components/ui/Toast";
 import styles from "./page.module.scss";
 
 import { EnquiryPopup } from "@/components/home/EnquiryPopup";
+import { CelestiaPopup } from "@/components/home/popup";
 import { Announcements } from "@/components/home/Announcements";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function Home() {
   return (
     <main id="main-content" className={styles.main}>
       <EnquiryPopup />
+      <CelestiaPopup />
       <Header />
       <Hero />
       <Announcements />

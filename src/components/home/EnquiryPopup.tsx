@@ -18,6 +18,7 @@ export const EnquiryPopup = () => {
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState('');
 
+    /*
     useEffect(() => {
         // Show popup after a short delay, but only if not seen before
         const timer = setTimeout(() => {
@@ -30,6 +31,7 @@ export const EnquiryPopup = () => {
 
         return () => clearTimeout(timer);
     }, [openEnquiry]);
+    */
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
