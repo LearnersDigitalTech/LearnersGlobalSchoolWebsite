@@ -18,20 +18,7 @@ export const EnquiryPopup = () => {
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState('');
 
-    /*
-    useEffect(() => {
-        // Show popup after a short delay, but only if not seen before
-        const timer = setTimeout(() => {
-            const hasSeenPopup = sessionStorage.getItem('hasSeenEnquiryPopup');
-            if (!hasSeenPopup) {
-                openEnquiry();
-                sessionStorage.setItem('hasSeenEnquiryPopup', 'true');
-            }
-        }, 2000);
 
-        return () => clearTimeout(timer);
-    }, [openEnquiry]);
-    */
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;

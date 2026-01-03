@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import styles from './Header.module.scss';
 import { Button } from '../ui/Button';
+import { useEnquiry } from '@/context/EnquiryContext';
 
 const navItems = [
     { label: 'Home', href: '/' },
@@ -17,9 +18,7 @@ const navItems = [
     { label: 'Mandatory Disclosure', href: '/mandatory-disclosure' },
 ];
 
-import { useEnquiry } from '@/context/EnquiryContext';
 
-// ... existing imports
 
 export const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);

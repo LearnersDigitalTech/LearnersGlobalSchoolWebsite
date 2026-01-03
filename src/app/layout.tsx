@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.scss";
+import { EnquiryProvider } from "@/components/providers/EnquiryProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -96,9 +97,7 @@ export const metadata: Metadata = {
   classification: "School",
 };
 
-import { EnquiryProvider } from "@/components/providers/EnquiryProvider";
 
-// ... existing imports
 
 export default function RootLayout({
   children,
