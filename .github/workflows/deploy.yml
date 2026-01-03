@@ -8,7 +8,7 @@ on:
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }} # Setup this secret in GitHub
   REGION: us-central1 # Change to your preferred region
-  REPO_NAME: my-repo # Change to your Artifact Registry repository name
+  REPO_NAME: learners-repo # Change to your Artifact Registry repository name
   SERVICE_NAME: learners-website # Change to your Cloud Run service name
 
 jobs:
