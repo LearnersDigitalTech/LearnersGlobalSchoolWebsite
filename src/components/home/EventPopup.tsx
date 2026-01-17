@@ -46,7 +46,7 @@ export const EventPopup = () => {
 
                         <div className={styles.dateTime}>
                             <Calendar size={18} />
-                            <span>Saturday, December 28th</span>
+                            <span>Sunday, December 28th</span>
                         </div>
 
                         <p className={styles.description}>

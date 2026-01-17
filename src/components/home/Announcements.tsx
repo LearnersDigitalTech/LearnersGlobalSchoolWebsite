@@ -24,7 +24,7 @@ const announcements = [
         day: '28',
         year: '2025',
         title: 'Learners Celestia 2025   @ Kalamandira',
-        date: 'Saturday, December 28th',
+        date: 'Sunday, December 28th',
         description: 'Spectacular celebration of talent, achievements, and memorable performances.',
         actionTitle: 'ANNUAL DAY CELEBRATION 2025',
         actionDescription: 'Experience an evening filled with music, dance, drama, and awards ceremony!',
