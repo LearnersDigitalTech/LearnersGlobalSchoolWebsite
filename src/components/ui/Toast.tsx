@@ -24,7 +24,7 @@ export const StudentToast = () => {
             <div className={styles.content}>
                 <div className={styles.imageWrapper}>
                     <Image
-                        src="/images/mohit.png"
+                        src="/images/mohit.webp"
                         alt="Student of the Week"
                         width={60}
                         height={60}

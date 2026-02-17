@@ -1,380 +1,351 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
-
 .section {
-    padding: $spacing-6 0;
-    background-color: $background;
+    width: 100%;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
 .container {
-    @include container;
-    max-width: 100%;
-}
-
-// Carousel Container
-.carouselContainer {
-    width: 100%;
-    overflow: hidden;
-    padding: $spacing-3 0;
-
-    @include md {
-        padding: $spacing-4 0;
-    }
-}
-
-.track {
-    display: flex;
-    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .header {
     text-align: center;
-    margin-bottom: $spacing-6;
+    margin-bottom: 50px;
 }
 
 .title {
-    font-size: 1.75rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    color: $foreground;
+    color: #1a1a1a;
     margin: 0;
-
-    @include md {
+    
+    @media (max-width: 768px) {
         font-size: 2rem;
     }
 }
 
-// Single Card - Compact
-.card {
-    background: white;
-    border-radius: 20px;
-    padding: $spacing-4;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.06);
+.sliderWrapper {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    
+    @media (max-width: 968px) {
+        gap: 10px;
+    }
+}
+
+.cardContainer {
     width: 100%;
-    flex-shrink: 0;
-
-    @include sm {
-        padding: $spacing-6;
+    max-width: 800px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    
+    @media (max-width: 968px) {
+        max-width: 90%;
+        height: auto;
+        min-height: 450px;
     }
-
-    @include md {
-        padding: $spacing-6 $spacing-8;
+    
+    @media (max-width: 640px) {
+        max-width: 100%;
+        min-height: 520px;
     }
+}
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 4px;
-        height: 100%;
-        background: linear-gradient(180deg, #3B82F6 0%, #8B5CF6 100%);
+.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    will-change: transform, opacity;
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
     }
-
-    // Blue variant (National Maths Day)
+    
+    @media (max-width: 640px) {
+        padding: 30px 20px;
+    }
+    
     &.blue {
-        &::before {
-            background: linear-gradient(180deg, #3B82F6 0%, #2563EB 100%);
-        }
-
-        .dateBox {
-            box-shadow: 0 2px 12px rgba(59, 130, 246, 0.12);
-            border: 2px solid rgba(59, 130, 246, 0.1);
-
-            .month {
-                color: #3B82F6;
-            }
-
-            .day {
-                color: #1E40AF;
-            }
-        }
-
-        .eventDate {
-            color: #3B82F6;
-        }
-
-        .badge {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1));
-            color: #3B82F6;
-        }
-
-        .ctaButton {
-            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-
-            &:hover {
-                box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-            }
-        }
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
     }
-
-    // Purple variant (Annual Day)
+    
     &.purple {
-        &::before {
-            background: linear-gradient(180deg, #8B5CF6 0%, #7C3AED 100%);
-        }
-
-        .dateBox {
-            box-shadow: 0 2px 12px rgba(139, 92, 246, 0.12);
-            border: 2px solid rgba(139, 92, 246, 0.1);
-
-            .month {
-                color: #8B5CF6;
-            }
-
-            .day {
-                color: #6D28D9;
-            }
-        }
-
-        .eventDate {
-            color: #8B5CF6;
-        }
-
-        .badge {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(124, 58, 237, 0.1));
-            color: #8B5CF6;
-        }
-
-        .ctaButton {
-            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
-
-            &:hover {
-                box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
-            }
-        }
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
     }
-
-    // Green variant (Admissions)
+    
     &.green {
-        &::before {
-            background: linear-gradient(180deg, #10B981 0%, #059669 100%);
-        }
-
-        .dateBox {
-            box-shadow: 0 2px 12px rgba(16, 185, 129, 0.12);
-            border: 2px solid rgba(16, 185, 129, 0.1);
-
-            .month {
-                color: #10B981;
-            }
-
-            .day {
-                color: #047857;
-            }
-        }
-
-        .eventDate {
-            color: #10B981;
-        }
-
-        .badge {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
-            color: #10B981;
-        }
-
-        .ctaButton {
-            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-
-            &:hover {
-                box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-            }
-        }
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: white;
     }
 }
 
 .content {
     display: flex;
-    flex-direction: column;
-    gap: $spacing-4;
-    align-items: flex-start;
-
-    @include md {
-        flex-direction: row;
-        gap: $spacing-6;
+    gap: 30px;
+    height: 100%;
+    
+    @media (max-width: 640px) {
+        flex-direction: column;
+        gap: 20px;
     }
 }
 
 .dateBox {
-    background: white;
-    border-radius: 12px;
-    padding: $spacing-3;
-    min-width: 100px;
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-
-    .month {
-        font-size: 0.75rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    
+    @media (max-width: 640px) {
+        width: 100px;
+        height: 100px;
+        align-self: center;
     }
+}
 
-    .day {
-        font-size: 2.5rem;
-        font-weight: 800;
-        line-height: 1;
-        margin: 6px 0;
-    }
+.month {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
 
-    .year {
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: #64748B;
-    }
+.day {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 5px 0;
+}
+
+.year {
+    font-size: 0.875rem;
+    font-weight: 500;
+    opacity: 0.9;
 }
 
 .info {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .eventTitle {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
-    color: $foreground;
-    margin: 0 0 $spacing-2 0;
-    line-height: 1.2;
-
-    @include md {
-        font-size: 1.625rem;
+    margin: 0;
+    line-height: 1.3;
+    
+    @media (max-width: 640px) {
+        font-size: 1.5rem;
+        text-align: center;
     }
 }
 
 .eventDate {
     display: flex;
     align-items: center;
-    gap: 6px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: $spacing-2;
-
-    svg {
-        flex-shrink: 0;
+    gap: 8px;
+    font-size: 0.95rem;
+    opacity: 0.95;
+    
+    @media (max-width: 640px) {
+        justify-content: center;
     }
 }
 
 .eventDescription {
-    color: $muted-foreground;
-    line-height: 1.5;
-    font-size: 0.875rem;
-    margin: 0 0 $spacing-6 0;
-}
-
-// Test Info - Compact
-.testInfo {
-    margin-top: $spacing-3;
-    text-align: center;
-
-    @include md {
-        text-align: left;
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.95;
+    margin: 0;
+    
+    @media (max-width: 640px) {
+        text-align: center;
     }
 }
 
-.badge {
-    display: inline-block;
-    padding: 6px 12px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    border-radius: 100px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: $spacing-2;
+.actionInfo {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.testTitle {
-    font-size: 1.25rem;
+.actionTitle {
+    font-size: 0.75rem;
     font-weight: 700;
-    color: $foreground;
-    margin: 0 0 $spacing-2 0;
-    line-height: 1.3;
-
-    @include md {
-        font-size: 1.375rem;
+    letter-spacing: 1.5px;
+    margin: 0 0 8px 0;
+    opacity: 0.9;
+    
+    @media (max-width: 640px) {
+        text-align: center;
     }
 }
 
-.testDescription {
-    color: $muted-foreground;
+.actionDescription {
+    font-size: 0.9rem;
     line-height: 1.5;
-    font-size: 0.875rem;
-    margin: 0 0 $spacing-4 0;
+    margin: 0 0 16px 0;
+    opacity: 0.9;
+    
+    @media (max-width: 640px) {
+        text-align: center;
+    }
 }
 
 .ctaButton {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    color: white;
-    font-weight: 700;
-    font-size: 0.9rem;
-    border-radius: 10px;
+    gap: 10px;
+    padding: 14px 28px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a1a1a;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
     text-decoration: none;
     transition: all 0.3s ease;
-
+    border: 2px solid transparent;
+    
+    @media (max-width: 640px) {
+        width: 100%;
+        justify-content: center;
+    }
+    
     &:hover {
-        transform: translateY(-2px);
-        gap: 12px;
+        background: white;
+        transform: translateX(5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
-
-    &:active {
-        transform: translateY(0);
-    }
-
+    
     svg {
         transition: transform 0.3s ease;
     }
-
+    
     &:hover svg {
         transform: translateX(3px);
     }
 }
 
-// Navigation Dots
+.navButton {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    color: #333;
+    
+    @media (max-width: 968px) {
+        width: 40px;
+        height: 40px;
+        
+        svg {
+            width: 22px;
+            height: 22px;
+        }
+    }
+    
+    @media (max-width: 640px) {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        width: 36px;
+        height: 36px;
+        
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    
+    &:hover {
+        background: #f8f9fa;
+        transform: scale(1.1);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        
+        @media (max-width: 640px) {
+            transform: translateY(-50%) scale(1.1);
+        }
+    }
+    
+    &:active {
+        transform: scale(0.95);
+        
+        @media (max-width: 640px) {
+            transform: translateY(-50%) scale(0.95);
+        }
+    }
+    
+    &.navLeft {
+        @media (max-width: 640px) {
+            left: 10px;
+        }
+    }
+    
+    &.navRight {
+        @media (max-width: 640px) {
+            right: 10px;
+        }
+    }
+}
+
 .navigation {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 12px;
-    margin-top: $spacing-4;
-    padding: $spacing-2 0;
 }
 
 .dot {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.2);
-    border: none;
+    border: 2px solid #667eea;
+    background: transparent;
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 0;
-
+    
     &:hover {
-        background-color: rgba(0, 0, 0, 0.4);
         transform: scale(1.2);
+        background: rgba(102, 126, 234, 0.3);
     }
-
+    
     &.active {
+        background: #667eea;
         width: 32px;
         border-radius: 6px;
-        background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
-        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
-    }
-
-    @include md {
-        width: 12px;
-        height: 12px;
-
-        &.active {
-            width: 40px;
-        }
     }
 }

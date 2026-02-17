@@ -1,84 +1,333 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
+// Clubs.module.scss
+
+// Color Variables
+$yellow-primary: #fbbf24;
+$yellow-light: #fef3c7;
+$yellow-dark: #d97706;
+
+$blue-primary: #3b82f6;
+$blue-light: #dbeafe;
+$blue-dark: #1e40af;
+
+$purple-primary: #a855f7;
+$purple-light: #f3e8ff;
+$purple-dark: #7e22ce;
+
+$red-primary: #ef4444;
+$red-light: #fee2e2;
+$red-dark: #b91c1c;
+
+$neutral-50: #fafafa;
+$neutral-100: #f5f5f5;
+$neutral-200: #e5e5e5;
+$neutral-600: #525252;
+$neutral-700: #404040;
+$neutral-900: #171717;
 
 .clubs {
-    padding: $spacing-8 0;
-    background-color: $background;
+    padding: 5rem 1.5rem;
+    background: linear-gradient(135deg, $neutral-50 0%, #fff 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 40%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
+        pointer-events: none;
+    }
 }
 
 .container {
-    @include container;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .header {
-    margin-bottom: $spacing-8;
     text-align: center;
+    margin-bottom: 4rem;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: $blue-light;
+    color: $blue-dark;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
 }
 
 .title {
-    font-size: 2rem;
-    color: $foreground;
-    margin-bottom: $spacing-2;
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: $neutral-900;
+    margin-bottom: 1rem;
+    letter-spacing: -0.025em;
 
-    @include md {
-        font-size: 2.5rem;
+    @media (max-width: 768px) {
+        font-size: 2rem;
     }
 }
 
 .subtitle {
-    color: $muted;
     font-size: 1.125rem;
+    color: $neutral-600;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+
+    @media (max-width: 768px) {
+        font-size: 1rem;
+    }
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-4;
-
-    @include md {
-        grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    
+    @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
 
 .houseCard {
-    padding: $spacing-6;
-    border-radius: 16px;
-    text-align: center;
-    color: #FFFFFF;
-    transition: transform 0.3s ease;
+    position: relative;
+    border-radius: 1.5rem;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    cursor: pointer;
+    animation: fadeInUp 0.6s ease-out both;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        transition: height 0.4s ease;
+    }
 
     &:hover {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12), 0 24px 48px rgba(0, 0, 0, 0.15);
+
+        &::before {
+            height: 100%;
+            opacity: 0.05;
+        }
+
+        .iconWrapper {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .colorStrip {
+            width: 100%;
+        }
     }
 
-    &.green {
-        background-color: #10B981;
-    }
-
-    &.red {
-        background-color: #EF4444;
-    }
-
-    &.blue {
-        background-color: #1E88E5;
-    }
-
-    &.purple {
-        background-color: #8B5CF6;
-    }
-
+    // Yellow House
     &.yellow {
-        background-color: #F59E0B;
+        &::before {
+            background: linear-gradient(135deg, $yellow-primary, $yellow-dark);
+        }
+
+        .iconWrapper {
+            background: linear-gradient(135deg, $yellow-light, lighten($yellow-light, 3%));
+            color: $yellow-dark;
+        }
+
+        .houseName {
+            color: $yellow-dark;
+        }
+
+        .colorStrip {
+            background: linear-gradient(90deg, $yellow-primary, $yellow-dark);
+        }
     }
+
+    // Blue House
+    &.blue {
+        &::before {
+            background: linear-gradient(135deg, $blue-primary, $blue-dark);
+        }
+
+        .iconWrapper {
+            background: linear-gradient(135deg, $blue-light, lighten($blue-light, 3%));
+            color: $blue-dark;
+        }
+
+        .houseName {
+            color: $blue-dark;
+        }
+
+        .colorStrip {
+            background: linear-gradient(90deg, $blue-primary, $blue-dark);
+        }
+    }
+
+    // Purple House
+    &.purple {
+        &::before {
+            background: linear-gradient(135deg, $purple-primary, $purple-dark);
+        }
+
+        .iconWrapper {
+            background: linear-gradient(135deg, $purple-light, lighten($purple-light, 3%));
+            color: $purple-dark;
+        }
+
+        .houseName {
+            color: $purple-dark;
+        }
+
+        .colorStrip {
+            background: linear-gradient(90deg, $purple-primary, $purple-dark);
+        }
+    }
+
+    // Red House
+    &.red {
+        &::before {
+            background: linear-gradient(135deg, $red-primary, $red-dark);
+        }
+
+        .iconWrapper {
+            background: linear-gradient(135deg, $red-light, lighten($red-light, 3%));
+            color: $red-dark;
+        }
+
+        .houseName {
+            color: $red-dark;
+        }
+
+        .colorStrip {
+            background: linear-gradient(90deg, $red-primary, $red-dark);
+        }
+    }
+}
+
+.cardInner {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.iconWrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.icon {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.content {
+    flex: 1;
 }
 
 .houseName {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: $spacing-2;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.015em;
 }
 
 .houseDesc {
-    font-size: 0.9rem;
-    opacity: 0.9;
+    font-size: 1rem;
+    color: $neutral-600;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.motto {
+    font-size: 0.875rem;
+    color: $neutral-600;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.colorStrip {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 0;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Animations
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .clubs {
+        padding: 3rem 1rem;
+    }
+
+    .header {
+        margin-bottom: 3rem;
+    }
+
+    .cardInner {
+        padding: 1.5rem;
+    }
+
+    .iconWrapper {
+        width: 70px;
+        height: 70px;
+    }
+
+    .icon {
+        font-size: 2rem;
+    }
+
+    .houseName {
+        font-size: 1.25rem;
+    }
 }

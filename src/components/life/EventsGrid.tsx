@@ -13,7 +13,7 @@ import styles from './EventsGrid.module.scss';
 //         categoryClass: 'cultural',
 //         date: { day: '28', month: 'Dec' },
 //         description: 'A vibrant celebration of art, music, and dance featuring performances by students across all grades.',
-//         image: '/images/celestia.JPG'
+//         image: '/images/celestia.webp'
 //     },
 //     {
 //         id: 2,
@@ -22,7 +22,7 @@ import styles from './EventsGrid.module.scss';
 //         categoryClass: 'academic',
 //         date: { day: '22', month: 'Sep' },
 //         description: 'Showcasing innovative projects and models created by our budding scientists and engineers.',
-//         image: '/images/stem-lab.png'
+//         image: '/images/stem-lab.webp'
 //     },
 //     {
 //         id: 3,
@@ -31,7 +31,7 @@ import styles from './EventsGrid.module.scss';
 //         categoryClass: 'sports',
 //         date: { day: '05', month: 'Oct' },
 //         description: 'Competing with top schools in the region in football, basketball, and athletics.',
-//         image: '/images/ground.jpeg'
+//         image: '/images/ground.webp'
 //     },
 //     {
 //         id: 4,
@@ -40,7 +40,7 @@ import styles from './EventsGrid.module.scss';
 //         categoryClass: 'workshop',
 //         date: { day: '12', month: 'Nov' },
 //         description: 'Hands-on workshop on building and programming autonomous robots for students of class 8-10.',
-//         image: '/images/smart-class.png'
+//         image: '/images/smart-class.webp'
 //     }
 // ];
 
@@ -52,7 +52,7 @@ const events = [
         categoryClass: 'cultural',
         date: { day: '28', month: 'Dec' },
         description: 'A vibrant celebration of art, music, and dance featuring performances by students across all grades.',
-        image: '/images/celestia.JPG'
+        image: '/images/celestia.webp'
     }
 ];
 
@@ -60,12 +60,12 @@ export const EventsGrid = () => {
     return (
         <section className={styles.section}>
             <div className={styles.container}>
-                <div className={styles.header}>
+                {/* <div className={styles.header}>
                     <h2 className={styles.sectionTitle}>Events</h2>
                     <p className={styles.subtitle}>
                         Stay updated with the latest happenings and upcoming activities at Learner Global School.
                     </p>
-                </div>
+                </div> */}
 
                 <div className={styles.grid}>
                     {events.map((event) => {

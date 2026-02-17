@@ -11,7 +11,7 @@ export const PrincipalNote = () => {
                 <div className={styles.imageWrapper}>
                     {/* Placeholder image - replace with actual principal image */}
                     <Image
-                        src="/images/SmtMadhavi.jpeg"
+                        src="/images/SmtMadhavi.webp"
                         alt="Madhavi Latha Konareddy, Principal"
                         width={500}
                         height={600}

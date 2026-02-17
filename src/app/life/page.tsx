@@ -9,6 +9,7 @@ import { EventsGrid } from '@/components/life/EventsGrid';
 import { CampusGallery } from '@/components/life/CampusGallery';
 import { MediaRecognition } from '@/components/life/MediaRecognition';
 import styles from './page.module.scss';
+import { CoursesHero } from '@/components/courses/CoursesHero';
 
 
 
@@ -24,8 +25,12 @@ export default function Life() {
         <main id="main-content" className={styles.main}>
             <Header />
 
-
-
+<CoursesHero 
+                imageSrc="/images/clubs.webp"
+                imageAlt="Our Team"
+                title="Event"
+                subtitle="Stay updated with the latest happenings and upcoming activities at Learner Global School.."
+            />
             <EventsGrid />
             <CampusGallery />
             <MediaRecognition />

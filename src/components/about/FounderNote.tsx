@@ -10,7 +10,7 @@ export const FounderNote = () => {
             <div className={styles.container}>
                 <div className={styles.imageWrapper}>
                     <Image
-                        src="/images/MuraliMohan.jpg"
+                        src="/images/MuraliMohan.webp"
                         alt="Murali Mohan Konareddy, Founder Director"
                         width={500}
                         height={600}

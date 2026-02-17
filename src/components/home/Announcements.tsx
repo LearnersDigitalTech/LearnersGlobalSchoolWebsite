@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { Calendar, ExternalLink } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Calendar, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Announcements.module.scss';
 
 const announcements = [
@@ -47,23 +48,52 @@ const announcements = [
     }
 ];
 
-import { motion } from 'framer-motion';
-
 export const Announcements = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [direction, setDirection] = useState(0);
 
-    // Auto-update active index based on time
     useEffect(() => {
         const interval = setInterval(() => {
-            setActiveIndex((prev) => (prev + 1) % announcements.length);
-        }, 5000);
+            handleNext();
+        }, 6000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [activeIndex]);
+
+    const handleNext = () => {
+        setDirection(1);
+        setActiveIndex((prev) => (prev + 1) % announcements.length);
+    };
+
+    const handlePrev = () => {
+        setDirection(-1);
+        setActiveIndex((prev) => (prev - 1 + announcements.length) % announcements.length);
+    };
 
     const handleDotClick = (index: number) => {
+        setDirection(index > activeIndex ? 1 : -1);
         setActiveIndex(index);
     };
+
+    const slideVariants = {
+        enter: {
+            opacity: 0,
+            scale: 0.9,
+            y: 20
+        },
+        center: {
+            opacity: 1,
+            scale: 1,
+            y: 0
+        },
+        exit: {
+            opacity: 1,
+            scale: 0.9,
+            y: -20
+        }
+    };
+
+    const currentAnnouncement = announcements[activeIndex];
 
     return (
         <section className={styles.section}>
@@ -72,54 +102,80 @@ export const Announcements = () => {
                     <h2 className={styles.title}>Latest Announcements</h2>
                 </div>
 
-                <div className={styles.carouselContainer}>
-                    <motion.div
-                        className={styles.track}
-                        animate={{ x: `-${activeIndex * 100}%` }}
-                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                <div className={styles.sliderWrapper}>
+                    {/* Navigation Arrows */}
+                    <button
+                        className={`${styles.navButton} ${styles.navLeft}`}
+                        onClick={handlePrev}
+                        aria-label="Previous announcement"
                     >
-                        {announcements.map((announcement, index) => (
-                            <div key={index} className={`${styles.card} ${styles[announcement.color]}`}>
+                        <ChevronLeft size={28} />
+                    </button>
+
+                    {/* Card Container */}
+                    <div className={styles.cardContainer}>
+                        <AnimatePresence initial={false} mode="wait">
+                            <motion.div
+                                key={activeIndex}
+                                variants={slideVariants}
+                                initial="enter"
+                                animate="center"
+                                exit="exit"
+                                transition={{
+                                    duration: 0.4,
+                                    ease: "easeInOut"
+                                }}
+                                className={`${styles.card} ${styles[currentAnnouncement.color]}`}
+                            >
                                 <div className={styles.content}>
                                     {/* Date Box */}
                                     <div className={styles.dateBox}>
-                                        <span className={styles.month}>{announcement.month}</span>
-                                        <span className={styles.day}>{announcement.day}</span>
-                                        <span className={styles.year}>{announcement.year}</span>
+                                        <span className={styles.month}>{currentAnnouncement.month}</span>
+                                        <span className={styles.day}>{currentAnnouncement.day}</span>
+                                        <span className={styles.year}>{currentAnnouncement.year}</span>
                                     </div>
 
                                     {/* Event Info */}
                                     <div className={styles.info}>
-                                        <h3 className={styles.eventTitle}>{announcement.title}</h3>
+                                        <h3 className={styles.eventTitle}>{currentAnnouncement.title}</h3>
                                         <div className={styles.eventDate}>
                                             <Calendar size={18} />
-                                            <span>{announcement.date}</span>
+                                            <span>{currentAnnouncement.date}</span>
                                         </div>
                                         <p className={styles.eventDescription}>
-                                            {announcement.description}
+                                            {currentAnnouncement.description}
                                         </p>
 
                                         {/* Action Info */}
-                                        <div className={styles.testInfo}>
-                                            <h4 className={styles.testTitle}>{announcement.actionTitle}</h4>
-                                            <p className={styles.testDescription}>
-                                                {announcement.actionDescription}
+                                        <div className={styles.actionInfo}>
+                                            <h4 className={styles.actionTitle}>{currentAnnouncement.actionTitle}</h4>
+                                            <p className={styles.actionDescription}>
+                                                {currentAnnouncement.actionDescription}
                                             </p>
                                             <a
-                                                href={announcement.actionLink}
+                                                href={currentAnnouncement.actionLink}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className={styles.ctaButton}
                                             >
-                                                <span>{announcement.actionText}</span>
+                                                <span>{currentAnnouncement.actionText}</span>
                                                 <ExternalLink size={18} />
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                    </motion.div>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
+
+                    {/* Navigation Arrow Right */}
+                    <button
+                        className={`${styles.navButton} ${styles.navRight}`}
+                        onClick={handleNext}
+                        aria-label="Next announcement"
+                    >
+                        <ChevronRight size={28} />
+                    </button>
                 </div>
 
                 {/* Navigation Dots */}

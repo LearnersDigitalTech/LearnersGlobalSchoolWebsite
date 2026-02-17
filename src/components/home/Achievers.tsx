@@ -9,28 +9,28 @@ const achievers = [
         name: 'Ashika Rao',
         achievement: 'National Level Swimmer',
         description: 'Secured Gold Medal in 50m Freestyle at the National Aquatic Championship 2024.',
-        image: '/images/ashika.png',
+        image: '/images/ashika.webp',
         color: 'blue'
     },
     {
         name: 'Mohit Sinha',
         achievement: 'Math Olympiad Winner',
         description: 'Ranked 1st in the International Mathematics Olympiad (IMO) - Regional Level.',
-        image: '/images/mohit.png',
+        image: '/images/mohit.webp',
         color: 'green'
     },
     {
         name: 'Ashika Rao',
         achievement: 'National Level Swimmer',
         description: 'Secured Gold Medal in 50m Freestyle at the National Aquatic Championship 2024.',
-        image: '/images/ashika.png',
+        image: '/images/ashika.webp',
         color: 'blue'
     },
     {
         name: 'Mohit Sinha',
         achievement: 'Math Olympiad Winner',
         description: 'Ranked 1st in the International Mathematics Olympiad (IMO) - Regional Level.',
-        image: '/images/mohit.png',
+        image: '/images/mohit.webp',
         color: 'green'
     }
 ];

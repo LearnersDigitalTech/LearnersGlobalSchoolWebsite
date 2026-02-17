@@ -12,7 +12,7 @@ const facilities = [
         category: 'Innovation Hub',
         description: 'Our state-of-the-art STEM labs are designed to foster curiosity and hands-on learning. Equipped with the latest robotics kits, 3D printers, and physics apparatus, students can bring their theoretical knowledge to life.',
         features: ['Robotics & AI Workstations', '3D Printing Zone', 'Physics & Chemistry Bays', 'Collaborative Workspaces'],
-        image: '/images/stem-lab.png'
+        image: '/images/stem-lab.webp'
     },
     {
         id: 'smart',
@@ -20,7 +20,7 @@ const facilities = [
         category: 'Digital Learning',
         description: 'Every classroom is a gateway to the world. With interactive flat panels, high-speed internet, and digital learning resources, we ensure that learning is engaging, visual, and boundless.',
         features: ['Interactive Flat Panels', 'Digital Content Library', 'Hybrid Learning Ready', 'Ergonomic Seating'],
-        image: '/images/smart-class.png'
+        image: '/images/smart-class.webp'
     },
     {
         id: 'library',
@@ -28,7 +28,7 @@ const facilities = [
         category: 'Knowledge Center',
         description: 'More than just books, our library is a vibrant space for research and reading. It houses a vast collection of physical books alongside a comprehensive digital repository accessible to all students.',
         features: ['20,000+ Books', 'Kindle & E-Book Zone', 'Quiet Study Areas', 'Research Terminals'],
-        image: '/images/library.png'
+        image: '/images/library.webp'
     },
     {
         id: 'sports',
@@ -36,7 +36,7 @@ const facilities = [
         category: 'Physical Education',
         description: 'Champions are made here. Our sprawling sports complex includes facilities for cricket, football, basketball, and athletics, coached by national-level trainers to ensure holistic physical development.',
         features: ['FIFA Standard Turf', 'Indoor Basketball Court', 'Swimming Pool', 'Athletics Track'],
-        image: '/images/ground.jpeg'
+        image: '/images/ground.webp'
     },
     {
         id: 'canteen',
@@ -44,7 +44,7 @@ const facilities = [
         category: 'Health & Nutrition',
         description: 'We believe in fueling the mind and body. Our hygienic, modern canteen serves nutritious, balanced meals prepared fresh daily, ensuring students have the energy to excel throughout the day.',
         features: ['Hygienic Kitchen', 'Balanced Diet Menu', 'Spacious Dining Hall', 'Cashless Payments'],
-        image: '/images/Canteen.jpeg' // Placeholder
+        image: '/images/Canteen.webp' // Placeholder
     }
 ];
 

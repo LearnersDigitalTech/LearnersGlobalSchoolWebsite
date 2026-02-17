@@ -29,7 +29,7 @@ interface GalleryFolder {
 const galleryFolders: GalleryFolder[] = rawGalleryData as unknown as GalleryFolder[];
 
 // Fallback logic for development
-const FALLBACK_IMAGE = '/images/celestia.JPG';
+const FALLBACK_IMAGE = '/images/celestia.webp';
 
 export default function AnnualDayGallery() {
     const [activeFolderIndex, setActiveFolderIndex] = useState(0);

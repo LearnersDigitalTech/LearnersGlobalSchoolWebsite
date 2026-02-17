@@ -11,28 +11,28 @@ const streams = [
         description: 'Pre-KG – Class 2: Play-based learning and skill development.',
         icon: <Star size={24} color="#FFFFFF" />,
         color: 'blue',
-        image: '/images/streams/Pre-KG-New.jpeg'
+        image: '/images/streams/Pre-KG-New.webp'
     },
     {
         title: 'Preparatory Stage',
         description: 'Class 3 – 5: Building strong foundations in literacy and numeracy.',
         icon: <BookOpen size={24} color="#FFFFFF" />,
         color: 'green',
-        image: '/images/preparatorystage.jpeg'
+        image: '/images/preparatorystage.webp'
     },
     {
         title: 'Middle Stage',
         description: 'Class 6 – 8: Encouraging curiosity and critical thinking.',
         icon: <Users size={24} color="#FFFFFF" />,
         color: 'yellow',
-        image: '/images/middlestage.jpeg'
+        image: '/images/middlestage.webp'
     },
     {
         title: 'Secondary Stage',
         description: 'Class 9 – 12: Academic rigor and holistic development.',
         icon: <Trophy size={24} color="#FFFFFF" />,
         color: 'red',
-        image: '/images/secondary.jpeg'
+        image: '/images/secondary.webp'
     }
 ];
 

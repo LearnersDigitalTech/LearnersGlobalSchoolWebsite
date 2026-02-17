@@ -1,0 +1,416 @@
+// Testimonials.module.scss
+
+// Color Variables
+$primary-blue: #3b82f6;
+$primary-purple: #a855f7;
+$blue-light: #dbeafe;
+$purple-light: #f3e8ff;
+$blue-dark: #1e40af;
+$purple-dark: #7e22ce;
+
+$neutral-50: #fafafa;
+$neutral-100: #f5f5f5;
+$neutral-200: #e5e5e5;
+$neutral-300: #d4d4d4;
+$neutral-400: #a3a3a3;
+$neutral-600: #525252;
+$neutral-700: #404040;
+$neutral-800: #262626;
+$neutral-900: #171717;
+
+.testimonials {
+    padding: 6rem 1.5rem;
+    background: linear-gradient(180deg, #ffffff 0%, $neutral-50 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 20% 20%, rgba(168, 85, 247, 0.03) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%);
+        pointer-events: none;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: linear-gradient(135deg, $blue-light, $purple-light);
+    color: $blue-dark;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: $neutral-900;
+    margin-bottom: 1rem;
+    letter-spacing: -0.025em;
+
+    @media (max-width: 768px) {
+        font-size: 2rem;
+    }
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: $neutral-600;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.7;
+
+    @media (max-width: 768px) {
+        font-size: 1rem;
+    }
+}
+
+.carouselWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+
+    @media (max-width: 768px) {
+        gap: 1rem;
+    }
+}
+
+.carousel {
+    flex: 1;
+    max-width: 900px;
+    overflow: hidden;
+}
+
+.cardWrapper {
+    animation: fadeInScale 0.6s ease-out;
+}
+
+.testimonialCard {
+    background: white;
+    border-radius: 2rem;
+    padding: 3rem;
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 10px 25px rgba(0, 0, 0, 0.08),
+        0 20px 40px rgba(0, 0, 0, 0.05);
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid $neutral-100;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        border-radius: 2rem 2rem 0 0;
+        transition: all 0.3s ease;
+    }
+
+    &.parent::before {
+        background: linear-gradient(90deg, $primary-blue, $blue-dark);
+    }
+
+    &.student::before {
+        background: linear-gradient(90deg, $primary-purple, $purple-dark);
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 
+            0 8px 12px rgba(0, 0, 0, 0.08),
+            0 20px 40px rgba(0, 0, 0, 0.12),
+            0 30px 60px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 768px) {
+        padding: 2rem;
+        border-radius: 1.5rem;
+    }
+}
+
+.quoteIcon {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    font-size: 6rem;
+    font-family: Georgia, serif;
+    color: $neutral-100;
+    line-height: 1;
+    opacity: 0.5;
+    user-select: none;
+
+    @media (max-width: 768px) {
+        font-size: 4rem;
+        top: 1.5rem;
+        right: 2rem;
+    }
+}
+
+.content {
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.quote {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: $neutral-700;
+    font-style: italic;
+    margin: 0;
+
+    @media (max-width: 768px) {
+        font-size: 1.125rem;
+    }
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.avatarWrapper {
+    position: relative;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, $neutral-100, $neutral-50);
+    border: 3px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    @media (max-width: 768px) {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+}
+
+.typeBadge {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border: 2px solid white;
+}
+
+.authorInfo {
+    flex: 1;
+}
+
+.name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $neutral-900;
+    margin: 0 0 0.25rem 0;
+
+    @media (max-width: 768px) {
+        font-size: 1.125rem;
+    }
+}
+
+.role {
+    font-size: 0.9375rem;
+    color: $neutral-600;
+    margin: 0;
+}
+
+.navButton {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid $neutral-200;
+    color: $neutral-700;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+
+    &:hover {
+        background: $primary-blue;
+        border-color: $primary-blue;
+        color: white;
+        transform: scale(1.1);
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    @media (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+}
+
+.indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 4rem;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: $neutral-300;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+
+    &:hover {
+        background: $neutral-400;
+        transform: scale(1.2);
+    }
+
+    &.active {
+        background: $primary-blue;
+        width: 32px;
+        border-radius: 5px;
+    }
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 3rem 0;
+    border-top: 1px solid $neutral-200;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 2rem 0;
+    }
+}
+
+.stat {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.statNumber {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, $primary-blue, $primary-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+
+    @media (max-width: 768px) {
+        font-size: 2rem;
+    }
+}
+
+.statLabel {
+    font-size: 0.9375rem;
+    color: $neutral-600;
+    font-weight: 500;
+}
+
+// Animations
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+// Accessibility
+@media (prefers-reduced-motion: reduce) {
+    .testimonials,
+    .carousel,
+    .testimonialCard,
+    .navButton,
+    .indicator,
+    .stats,
+    .stat {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

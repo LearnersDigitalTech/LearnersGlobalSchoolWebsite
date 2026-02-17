@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         title: "About Learners Global School | Mission, Vision & Faculty",
         description: "Discover our mission to nurture compassionate global leaders through educational excellence in Mysore.",
         url: "https://learnersglobalschool.com/about",
-        images: [{ url: "/LL.png", width: 1200, height: 630, alt: "About Learners Global School" }],
+        images: [{ url: "/LL.webp", width: 1200, height: 630, alt: "About Learners Global School" }],
     },
 };
 

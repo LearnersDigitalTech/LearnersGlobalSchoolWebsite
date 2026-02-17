@@ -23,7 +23,7 @@ export const LifeHero = () => {
                     <div className={styles.card}>
                         <div className={styles.imageWrapper}>
                             <Image
-                                src="/images/girl1.png"
+                                src="/images/girl1.webp"
                                 alt="Sarah Jenkins"
                                 width={120}
                                 height={120}
@@ -48,7 +48,7 @@ export const LifeHero = () => {
                     <div className={`${styles.card} ${styles.centerCard}`}>
                         <div className={styles.imageWrapper}>
                             <Image
-                                src="/images/mohit.png"
+                                src="/images/mohit.webp"
                                 alt="David Chen"
                                 width={160}
                                 height={160}
@@ -73,7 +73,7 @@ export const LifeHero = () => {
                     <div className={styles.card}>
                         <div className={styles.imageWrapper}>
                             <Image
-                                src="/images/ashika.png"
+                                src="/images/ashika.webp"
                                 alt="Aisha Khan"
                                 width={120}
                                 height={120}

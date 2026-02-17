@@ -8,7 +8,7 @@ export const metadata: Metadata = {
         title: "Campus Life | Events, Facilities & Activities",
         description: "Discover vibrant campus life with modern facilities, exciting events, and comprehensive student activities.",
         url: "https://learnersglobalschool.com/life",
-        images: [{ url: "/LL.png", width: 1200, height: 630, alt: "Campus Life at Learners Global School" }],
+        images: [{ url: "/LL.webp", width: 1200, height: 630, alt: "Campus Life at Learners Global School" }],
     },
 };
 

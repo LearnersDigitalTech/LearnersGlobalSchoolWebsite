@@ -16,6 +16,7 @@ import { EnquiryPopup } from "@/components/home/EnquiryPopup";
 import { CelestiaPopup } from "@/components/home/popup";
 import { EventPopup } from "@/components/home/EventPopup";
 import { Announcements } from "@/components/home/Announcements";
+import { Testimonials } from "@/components/home/Testimonials";
 
 export const metadata: Metadata = {
   title: "Learners Global School Sathagalli | Premier CBSE School in Mysore",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     title: "Learners Global School Sathagalli | Premier CBSE School in Mysore",
     description: "Welcome to Learners Global School - Shaping future leaders through innovative CBSE education in Mysore.",
     url: "https://learnersglobalschool.com",
-    images: [{ url: "/LL.png", width: 1200, height: 630, alt: "Learners Global School" }],
+    images: [{ url: "/LL.webp", width: 1200, height: 630, alt: "Learners Global School" }],
   },
 };
 
@@ -45,6 +46,7 @@ export default function Home() {
       <Activities />
       <Clubs />
       <Affiliates />
+      <Testimonials/>
       {/* <StudentToast /> */}
       <Footer />
     </main>
