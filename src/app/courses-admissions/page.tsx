@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         title: "Courses & Admissions | CBSE Pre-KG to Class 12",
         description: "Comprehensive CBSE education with Science, Commerce & Arts streams. Admissions open for 2024-25 in Mysore.",
         url: "https://learnersglobalschool.com/courses-admissions",
-        images: [{ url: "/LL.png", width: 1200, height: 630, alt: "Courses and Admissions" }],
+        images: [{ url: "/LL.webp", width: 1200, height: 630, alt: "Courses and Admissions" }],
     },
 };
 

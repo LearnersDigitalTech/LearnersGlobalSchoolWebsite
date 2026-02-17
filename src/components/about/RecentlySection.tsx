@@ -7,31 +7,31 @@ import styles from './RecentlySection.module.scss';
 const recentEvents = [
     {
         id: 1,
-        image: '/images/smart-class.png',
+        image: '/images/smart-class.webp',
         caption: 'New Smart Classrooms',
         description: 'Introducing state-of-the-art smart classrooms to enhance interactive learning. Our students now have access to digital boards and multimedia resources.'
     },
     {
         id: 2,
-        image: '/images/library.png',
+        image: '/images/library.webp',
         caption: 'Library Renovation',
         description: 'Our library has been revamped with thousands of new books and a cozy reading corner to foster a love for reading among students.'
     },
     {
         id: 3,
-        image: '/images/stem-lab.png',
+        image: '/images/stem-lab.webp',
         caption: 'STEM Lab Opening',
         description: 'A new dedicated space for Science, Technology, Engineering, and Math exploration, equipped with robotics kits and 3D printers.'
     },
     {
         id: 4,
-        image: '/images/ground.jpeg',
+        image: '/images/ground.webp',
         caption: 'Sports Day Highlights',
         description: 'Celebrating sportsmanship and athleticism at our annual sports meet. Students participated in track and field events with great enthusiasm.'
     },
     {
         id: 5,
-        image: '/images/hero_students.png',
+        image: '/images/clubs.webp',
         caption: 'Cultural Fest',
         description: 'A vibrant display of talent and culture by our students, featuring dance, music, and drama performances.'
     }

@@ -33,9 +33,9 @@ const methods = [
 ];
 
 const slideshowImages = [
-    '/images/ss21.jpeg',
-    '/images/ss22.jpeg',
-    // '/images/ss23.jpg', // Removed as it was not found
+    '/images/ss21.webp',
+    '/images/preparatorystage.webp',
+    // '/images/ss23.webp', // Removed as it was not found
 ];
 
 export const Methodology = () => {

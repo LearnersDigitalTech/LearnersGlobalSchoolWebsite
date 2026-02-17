@@ -1,353 +1,680 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
+// Activities.module.scss
 
 .activities {
-    padding: $spacing-8 0;
-    background-color: #FFFFFF;
+  padding: 100px 0 120px;
+  background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 60px 0 80px;
+  }
 }
 
 .container {
-    @include container;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  @media (max-width: 1024px) {
+    padding: 0 24px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
 }
 
+// Header Section
 .header {
-    margin-bottom: $spacing-8;
+  text-align: center;
+  margin-bottom: 80px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 48px;
+  }
+}
+
+.subtitle {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6366f1;
+  margin-bottom: 16px;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #6366f1, transparent);
+  }
 }
 
 .title {
-    font-size: 2rem;
-    color: $foreground;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 24px 0 16px;
+  line-height: 1.2;
 
-    @include md {
-        font-size: 2.5rem;
-    }
+  @media (max-width: 1024px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+    margin: 16px 0 12px;
+  }
 }
 
-.contentWrapper {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-4;
+.headerDescription {
+  font-size: 16px;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
 
-    @include md {
-        flex-direction: row;
-        height: 500px; // Fixed height for desktop to ensure alignment
-    }
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
+}
+
+// Content Layout
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 60px;
+  align-items: start;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 320px 1fr;
+    gap: 40px;
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+// Sidebar Navigation
+.sidebar {
+  position: sticky;
+  top: 120px;
+
+  @media (max-width: 1024px) {
+    position: static;
+    margin-bottom: 32px;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .list {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-2;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
 
-    @include md {
-        flex: 0 0 300px; // Fixed width for the list on desktop
+  @media (max-width: 1024px) {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 12px;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+
+    &::-webkit-scrollbar {
+      height: 4px;
     }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 2px;
+    }
+  }
 }
 
 .listItem {
-    padding: $spacing-4;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1.125rem;
-    font-weight: 500;
-    color: $muted-foreground;
-    background-color: transparent;
-    text-align: left;
-    border: none;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #475569;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
 
-    &:hover {
-        background-color: rgba($primary, 0.05);
-        color: $primary;
+  @media (max-width: 1024px) {
+    flex-shrink: 0;
+    min-width: 240px;
+    padding: 16px 20px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #6366f1;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover {
+    border-color: #6366f1;
+    background: #f8f9ff;
+    transform: translateX(4px);
+
+    .itemArrow {
+      transform: translateX(4px);
+      opacity: 1;
+    }
+  }
+
+  &.active {
+    border-color: #6366f1;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    transform: translateX(8px);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.25);
+
+    &::before {
+      transform: scaleY(1);
     }
 
-    &.active {
-        background-color: #FFFFFF;
-        color: $primary;
-        font-weight: 700;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        position: relative;
-
-        &::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 60%;
-            width: 4px;
-            background-color: $primary;
-            border-radius: 0 4px 4px 0;
-        }
+    .itemNumber {
+      color: rgba(255, 255, 255, 0.8);
     }
+
+    .itemArrow {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+  }
 }
 
-.displayArea {
-    flex: 1;
-    position: relative;
-    border-radius: 16px;
-    overflow: hidden;
-    background-color: #F3F4F6;
-    display: block; // For Link component
-    text-decoration: none;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+.itemNumber {
+  font-size: 14px;
+  font-weight: 700;
+  color: #cbd5e1;
+  transition: color 0.3s ease;
+}
 
-    &:hover .overlay {
-        opacity: 0.4;
+.itemTitle {
+  flex: 1;
+}
+
+.itemArrow {
+  font-size: 20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.enquireButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(26, 26, 46, 0.2);
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26, 26, 46, 0.3);
+
+    svg {
+      transform: translateX(4px);
     }
+  }
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+// Display Area
+.displayArea {
+  position: relative;
+
+  @media (max-width: 768px) {
+    touch-action: pan-x;
+  }
+}
+
+// Mobile Tabs Navigation
+.mobileTabsWrapper {
+  display: none;
+  margin-bottom: 24px;
+  position: relative;
+
+  @media (max-width: 1024px) {
+    display: block;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    background: linear-gradient(to left, #fafafa, transparent);
+    pointer-events: none;
+    z-index: 2;
+
+    @media (max-width: 768px) {
+      width: 24px;
+    }
+  }
+}
+
+.mobileTabs {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 4px 0 12px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+
+    &:hover {
+      background: #94a3b8;
+    }
+  }
+
+  // Hide scrollbar on mobile but keep functionality
+  @media (max-width: 768px) {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+}
+
+.mobileTab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  &:hover {
+    border-color: #6366f1;
+    background: #f8f9ff;
+  }
+
+  &.active {
+    border-color: #6366f1;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+
+    .tabNumber {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+.tabNumber {
+  font-size: 12px;
+  font-weight: 700;
+  color: #cbd5e1;
+  transition: color 0.3s ease;
+}
+
+.tabTitle {
+  font-size: inherit;
+}
+
+.mediaCard {
+  display: block;
+  position: relative;
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+
+    .activityImage,
+    .activityVideo {
+      transform: scale(1.05);
+    }
+
+    .overlayContent {
+      .viewMore {
+        opacity: 1;
+        transform: translateX(0);
+
+        svg {
+          transform: translateX(4px);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    border-radius: 20px;
+  }
+}
+
+.mediaLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 .mediaWrapper {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; // 16:9 aspect ratio (9/16 * 100 = 56.25%)
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow: hidden;
+  animation: fadeIn 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    padding-top: 75%; // 4:3 aspect ratio for mobile
+  }
+
+  @media (max-width: 480px) {
+    padding-top: 100%; // 1:1 aspect ratio for small mobile
+  }
 }
 
 .activityImage,
 .activityVideo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent 50%);
-    z-index: 1;
-    transition: opacity 0.3s ease;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+// Overlaid Content on Image
+.overlayContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 48px 40px;
+  z-index: 2;
+  color: white;
+
+  @media (max-width: 768px) {
+    padding: 32px 24px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 24px 20px;
+  }
 }
 
 .content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: $spacing-8;
-    z-index: 2;
-    width: 100%;
+  position: relative;
+  padding: 40px;
+  background: white;
+
+  @media (max-width: 768px) {
+    padding: 28px 24px;
+  }
+}
+
+.tagWrapper {
+  margin-bottom: 16px;
 }
 
 .tag {
-    display: inline-block;
-    padding: $spacing-1 $spacing-3;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(4px);
-    border-radius: 9999px;
-    color: #FFFFFF;
-    font-size: 0.875rem;
-    font-weight: 600;
-    margin-bottom: $spacing-2;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  @media (max-width: 768px) {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
 }
 
-.cardTitle {
-    color: #FFFFFF;
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: $spacing-4;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+.activityTitle {
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 1024px) {
+    font-size: 32px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
 }
 
 .description {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
-    max-width: 600px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 24px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  max-width: 90%;
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+    margin-bottom: 20px;
     line-height: 1.6;
-    display: none; // Hidden by default, can be shown if we add descriptions later
+  }
 
-    @include md {
-        display: block;
-    }
+  @media (max-width: 480px) {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
 }
 
-.enquireButton {
-    margin-top: $spacing-4;
-    display: inline-flex;
-    align-items: center;
-    gap: $spacing-2;
-    padding: $spacing-3 $spacing-6;
-    background-color: $primary;
-    color: #FFFFFF;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: all 0.3s ease;
+.viewMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  opacity: 0.9;
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+  padding: 8px 16px 8px 0;
 
-    &:hover {
-        background-color: color-mix(in srgb, var(--primary), black 10%);
-        transform: translateY(-2px);
-    }
-}
-
-.container {
-    @include container;
-}
-
-.header {
-    margin-bottom: $spacing-8;
-}
-
-.title {
-    font-size: 2rem;
-    color: $foreground;
-
-    @include md {
-        font-size: 2.5rem;
-    }
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: $spacing-4;
-    grid-auto-rows: 200px;
-
-    @include sm {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include md {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: 250px 250px;
-    }
-}
-
-.card {
-    position: relative;
-    border-radius: 16px;
-    overflow: hidden;
-    cursor: pointer;
+  svg {
     transition: transform 0.3s ease;
+  }
 
-    &:hover {
-        transform: scale(1.02);
-    }
+  @media (max-width: 768px) {
+    font-size: 13px;
+  }
 }
 
-// Grid Layout for Masonry-like feel
-// 1 2 2 2
-// 3 3 4 5
+// Mobile Navigation Dots
+.mobileDots {
+  display: none;
 
-// Let's try a specific layout based on 5 items
-// Item 1: Large Left
-// Item 2: Top Right Wide
-// Item 3: Bottom Right 1
-// Item 4: Bottom Right 2
-// Item 5: Bottom Right 3 (Wait, 5 items)
-
-// Layout:
-// [ 1 ] [ 2 ]
-// [ 3 ] [ 4 ] [ 5 ] (on mobile/tablet)
-
-// Desktop Layout:
-// [ 1 (2x2) ] [ 2 (2x1) ]
-//             [ 3 ] [ 4 ]
-
-@include md {
-    .card-1 {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-
-    .card-2 {
-        grid-column: span 2;
-    }
-
-    .card-3 {
-        grid-column: span 1; // Actually we have 5 items.
-        // Let's do:
-        // [1 1] [2 2]
-        // [3 3] [4] [5]
-        grid-column: span 2;
-    }
-
-    .card-4 {
-        grid-column: span 1;
-    }
-
-    .card-5 {
-        grid-column: span 1;
-    }
-
-    .enquireCard {
-        grid-column: span 1;
-    }
-}
-
-.enquireCard {
-    background-color: $primary;
+  @media (max-width: 768px) {
     display: flex;
-    align-items: center;
     justify-content: center;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-
-    &:hover {
-        background-color: color-mix(in srgb, var(--primary), black 5%);
-        transform: scale(1.02);
-    }
+    gap: 8px;
+    margin-top: 24px;
+  }
 }
 
-.enquireContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: $spacing-2;
-    color: #FFFFFF;
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+
+  &.activeDot {
+    width: 32px;
+    border-radius: 4px;
+    background: #6366f1;
+  }
 }
 
-.enquireText {
-    font-size: 1.25rem;
-    font-weight: 600;
+// Mobile CTA
+.mobileCtaWrapper {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    margin-top: 32px;
+  }
 }
 
-.arrowIcon {
-    font-size: 1.5rem;
+.mobileEnquireButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(26, 26, 46, 0.2);
+
+  svg {
     transition: transform 0.3s ease;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
 }
 
-.enquireCard:hover .arrowIcon {
-    transform: translateX(5px);
+// Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.imageWrapper {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.activityImage {
-    transition: transform 0.5s ease;
-}
-
-.card:hover .activityImage {
-    transform: scale(1.05);
-}
-
-.placeholderImage {
-    width: 100%;
-    height: 100%;
-    background-color: #94A3B8;
-    position: relative;
-}
-
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 60%);
-    z-index: 1;
-}
-
-.cardTitle {
-    position: absolute;
-    bottom: $spacing-4;
-    left: $spacing-4;
-    color: #FFFFFF;
-    font-size: 1.5rem;
-    font-weight: 700;
-    z-index: 1;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+.activities {
+  animation: fadeInUp 0.6s ease-out;
 }

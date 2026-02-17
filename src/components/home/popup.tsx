@@ -82,7 +82,7 @@ export const CelestiaPopup = () => {
                 <div className={styles.formSection} style={{ paddingBottom: '2rem' }}>
                     <div style={{ marginBottom: '1rem', width: '100%', position: 'relative', height: '200px' }}>
                         <Image
-                            src="/images/celestia.JPG"
+                            src="/images/celestia.webp"
                             alt="Learners Celestia"
                             fill
                             style={{ objectFit: 'cover', borderRadius: '12px' }}

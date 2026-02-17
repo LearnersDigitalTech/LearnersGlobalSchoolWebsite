@@ -8,7 +8,7 @@ export const metadata: Metadata = {
         title: "Newsletter | Stay Updated with Learners Global School",
         description: "Subscribe to our newsletter for latest updates on events, admissions, and achievements.",
         url: "https://learnersglobalschool.com/newsletter",
-        images: [{ url: "/LL.png", width: 1200, height: 630, alt: "Newsletter Subscription" }],
+        images: [{ url: "/LL.webp", width: 1200, height: 630, alt: "Newsletter Subscription" }],
     },
 };
 

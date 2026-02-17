@@ -1,0 +1,186 @@
+/* -------------------------------------------------------------------------- */
+/*                                   Layout                                   */
+/* -------------------------------------------------------------------------- */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Shared container width (consistent with other pages) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+
+  @media (min-width: 768px) {
+    padding: 0 2rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             Documents Section                              */
+/* -------------------------------------------------------------------------- */
+
+.documentsSection {
+  background-color: #f1f5f9;
+  padding: 4rem 0 5rem;
+  position: relative;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Grid                                     */
+/* -------------------------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Card                                     */
+/* -------------------------------------------------------------------------- */
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgb(43, 43, 255);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Icon                                     */
+/* -------------------------------------------------------------------------- */
+
+.iconWrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #1E88E6;
+  transition: all 0.3s ease;
+
+  .card:hover & {
+    background-color: #1E88E6;
+    color: white;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Badge                                    */
+/* -------------------------------------------------------------------------- */
+
+.badge {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Category Variants */
+.general {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.legal {
+  background: #f3e8ff;
+  color: #6b21a8;
+}
+
+.academics {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.administration {
+  background: #eff6ff;
+  color: #1e40af;
+}
+
+.safety {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Title                                    */
+/* -------------------------------------------------------------------------- */
+
+.cardTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin: 0.5rem 0 1.5rem;
+  min-height: 3.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Actions                                  */
+/* -------------------------------------------------------------------------- */
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+/* Wrapper link — both share equal width */
+.actionLink {
+  flex: 1;
+  display: flex;
+  text-decoration: none;
+
+  button {
+    width: 100%;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               Accessibility                                */
+/* -------------------------------------------------------------------------- */
+
+.card:focus-within {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

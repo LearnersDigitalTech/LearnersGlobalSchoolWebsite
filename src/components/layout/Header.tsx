@@ -43,7 +43,7 @@ export const Header = () => {
             <div className={styles.container}>
                 <Link href="/" className={styles.logo}>
                     <Image
-                        src="/images/logo.png"
+                        src="/images/1.webp"
                         alt="Learners Global School Logo"
                         width={200}
                         height={60}
@@ -77,8 +77,8 @@ export const Header = () => {
                 </button>
 
                 {/* Mobile Menu */}
-                <div className={`${styles.mobileNav} ${isMobileMenuOpen ? styles.open : ''}`}>
-                    <div className={styles.mobileNavContent}>
+                <div className={`${styles.mobileNav} ${isMobileMenuOpen ? styles.open : ''}`} >
+                    <div className={styles.mobileNavContent} style={{ backgroundColor: 'white' }}>
                         {navItems.map((item) => (
                             <Link
                                 key={item.href}

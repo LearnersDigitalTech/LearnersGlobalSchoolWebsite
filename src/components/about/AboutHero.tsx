@@ -42,7 +42,7 @@ export const AboutHero = () => {
 
                 <div className={styles.imageWrapper}>
                     <Image
-                        src="/images/hero_students.png"
+                        src="https://storage.googleapis.com/global-school-website-bucket/2025-2026/Annual-Day-28-12-2025/Moments/DSC05901.JPG"
                         alt="Students of Learners Global School"
                         width={600}
                         height={500}

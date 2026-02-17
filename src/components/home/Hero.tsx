@@ -11,8 +11,8 @@ export const Hero = () => {
     const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
     const [isVirtualTourOpen, setIsVirtualTourOpen] = React.useState(false);
     const heroImages = [
-        '/images/Campus.jpeg',
-        '/images/student-of-the-week/Bhuvan.png'
+        '/images/Campus.webp',
+        '/images/student-of-the-week/top.webp'
     ];
 
     const heroCaptions = [

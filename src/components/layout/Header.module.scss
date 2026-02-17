@@ -104,7 +104,6 @@
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     z-index: 49;
-    padding: $spacing-4;
     border-top: 1px solid $border;
 
     &.open {
@@ -119,13 +118,13 @@
 .mobileNavContent {
     display: flex;
     flex-direction: column;
-    gap: $spacing-4;
+    gap: $spacing-2;
 }
 
 .mobileNavLink {
     font-size: 1.25rem;
     font-weight: 500;
-    padding: $spacing-2 0;
+    padding: $spacing-2;
     border-bottom: 1px solid $border;
     color: $foreground;
 
