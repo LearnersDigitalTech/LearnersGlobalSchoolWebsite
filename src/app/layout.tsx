@@ -13,7 +13,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Learners Global School Sathagalli | Premier CBSE School in Mysore",
-  description: "Learners Global School Sathagalli - A leading CBSE school in Mysore dedicated to shaping future leaders of India through innovative education, holistic development, and world-class facilities. Admissions open for 2024-25.",
+  description: "Learners Global School Sathagalli - A leading CBSE school in Mysore dedicated to shaping future leaders of India through innovative education, holistic development, and world-class facilities. Admissions open for 2026-27.",
   keywords: [
     "Learners Global School",
     "CBSE school Mysore",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     url: "https://learnersglobalschool.com",
     siteName: "Learners Global School Sathagalli",
     title: "Learners Global School Sathagalli | Premier CBSE School in Mysore",
-    description: "Shaping future leaders of India through innovative CBSE education, holistic development, and world-class facilities in Mysore. Admissions open for 2024-25.",
+    description: "Shaping future leaders of India through innovative CBSE education, holistic development, and world-class facilities in Mysore. Admissions open for 2026-27.",
     images: [
       {
         url: "/LL.webp",
