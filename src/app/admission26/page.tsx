@@ -137,14 +137,34 @@ export default function Admission26Page() {
         .header-cta:hover{background:var(--navy)}
 
         /* SCHOOL IMAGE BANNER */
-        .school-banner{position:relative;width:100%;height:260px;overflow:hidden}
+        .school-banner{position:relative;width:100%;height:220px;overflow:hidden}
+        @media(min-width:480px){.school-banner{height:300px}}
         @media(min-width:640px){.school-banner{height:380px}}
         @media(min-width:1024px){.school-banner{height:460px}}
         .school-banner img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
-        .school-banner-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(12,42,82,0.25) 0%,rgba(12,42,82,0.55) 100%)}
-        .school-banner-label{position:absolute;bottom:20px;left:20px;color:#fff}
-        .school-banner-label h2{font-family:var(--serif);font-size:clamp(18px,4vw,28px);line-height:1.2;margin-bottom:4px}
-        .school-banner-label p{font-size:13px;color:rgba(255,255,255,0.8)}
+        .school-banner-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(12,42,82,0.2) 0%,rgba(12,42,82,0.6) 100%)}
+        .school-banner-label{position:absolute;bottom:16px;left:16px;right:16px;color:#fff}
+        @media(min-width:480px){.school-banner-label{bottom:20px;left:20px}}
+        .school-banner-label h2{font-family:var(--serif);font-size:clamp(15px,3.5vw,28px);line-height:1.2;margin-bottom:4px}
+        .school-banner-label p{font-size:clamp(11px,2.5vw,13px);color:rgba(255,255,255,0.85)}
+
+        /* MOBILE IMPROVEMENTS */
+        @media(max-width:480px){
+          .hero{padding:28px 16px 28px}
+          .hero h1{font-size:28px}
+          .hero-sub{font-size:14px}
+          .form-section{padding:0 12px 28px}
+          .form-card{padding:20px 16px;margin:-20px auto 0}
+          .lgs-section{padding:24px 16px}
+          .stats-band{padding:16px}
+          .stats-inner{gap:8px}
+          .stat-n{font-size:22px}
+          .visit-cta{padding:28px 16px}
+          .collab-band{padding:16px}
+          .lgs-footer{padding:16px}
+          .why-item{padding:12px}
+          .stage-item{flex-direction:column;align-items:flex-start;gap:6px}
+        }
 
         /* HERO */
         .hero{background:linear-gradient(160deg,var(--navy) 0%,#1a3f7a 100%);color:#fff;padding:36px 20px 32px;position:relative;overflow:hidden}
@@ -277,7 +297,7 @@ export default function Admission26Page() {
 
       {/* Header */}
       <header className="lgs-header">
-        <div className="logo-wrap">
+        <a href="https://learnersglobalschool.com/" className="logo-wrap" style={{textDecoration:'none'}}>
           <img
             src="https://learnersglobalschool.com/_next/image?url=%2Fimages%2F1.webp&w=128&q=75"
             alt="Learners Global School"
@@ -288,21 +308,16 @@ export default function Admission26Page() {
             Learners Global School
             <small>Sathagalli, Mysuru · CBSE</small>
           </div>
-        </div>
+        </a>
         <a href="tel:+919916933202" className="header-cta" onClick={handlePhone}>📞 9916933202</a>
       </header>
 
       {/* ── SCHOOL BUILDING IMAGE BANNER ── */}
       <div className="school-banner">
         <img
-          src="/images/school-building.webp"
+          src="https://learnersglobalschool.com/_next/image?url=%2Fimages%2FCampus.webp&w=1920&q=75"
           alt="Learners Global School Campus — Sathagalli, Mysuru"
           style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 30%' }}
-          onError={(e) => {
-            // Fallback to the live website image if local not found
-            (e.target as HTMLImageElement).src =
-              'https://learnersglobalschool.com/_next/image?url=%2Fimages%2F1.webp&w=1200&q=90';
-          }}
         />
         <div className="school-banner-overlay" />
         <div className="school-banner-label">
@@ -452,8 +467,24 @@ export default function Admission26Page() {
         </div>
       </section>
 
-      {/* Academic Stages */}
+      {/* Testimonials — after Why Parents Choose */}
       <section className="lgs-section" style={{background:'var(--off)'}}>
+        <div className="section-inner">
+          <h2 className="section-head">What Parents Say</h2>
+          <p className="section-sub" style={{marginBottom:16}}>Families from across Mysuru trust LGS with their children's future.</p>
+          <div className="testimonial">
+            <p>"The holistic approach to education here has truly transformed my son's learning journey. The teachers genuinely care about each child's individual growth and potential."</p>
+            <div className="testimonial-by">Kavithashree K S — Mother of Bhuvan S Gowda, Grade 8</div>
+          </div>
+          <div className="testimonial">
+            <p>"We transferred our daughter from another school in Class 7. The difference in engagement and confidence has been remarkable within just one term."</p>
+            <div className="testimonial-by">Sandeep Babu R — Father of Samruddhi S, Grade 8</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Academic Stages */}
+      <section className="lgs-section" style={{background:'#fff'}}>
         <div className="section-inner">
           <h2 className="section-head">Academic Stages</h2>
           <p className="section-sub">Tailored learning at every stage of your child's growth journey.</p>
@@ -463,7 +494,7 @@ export default function Admission26Page() {
               ['Class 3 – 5','Preparatory Stage','Building strong literacy, numeracy, and scientific foundations.'],
               ['Class 6 – 8','Middle Stage','Critical thinking, inquiry-based learning, and exploration of subjects.'],
               ['Class 9 – 10','Secondary Stage','Academic rigour, CBSE board preparation, and holistic development.'],
-              ['Class 11 – 12','Senior Secondary','Science (JEE/NEET), Commerce, Arts streams with expert faculty guidance.'],
+              ['Class 11 – 12','Senior Secondary','Science streams PCMC / PCMB with JEE/NEET focused expert faculty guidance.'],
             ].map(([badge, title, text]) => (
               <div className="stage-item" key={badge}>
                 <span className="stage-badge">{badge}</span>
@@ -491,22 +522,6 @@ export default function Admission26Page() {
                 <div className="step-body"><strong>{title as string}</strong><p>{text as string}</p></div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="lgs-section" style={{background:'var(--off)'}}>
-        <div className="section-inner">
-          <h2 className="section-head">What Parents Say</h2>
-          <p className="section-sub" style={{marginBottom:16}}>Families from across Mysuru trust LGS with their children's future.</p>
-          <div className="testimonial">
-            <p>"The holistic approach to education here has truly transformed my son's learning journey. The teachers genuinely care about each child's individual growth and potential."</p>
-            <div className="testimonial-by">Kavithashree K S — Mother of Bhuvan S Gowda, Grade 8</div>
-          </div>
-          <div className="testimonial">
-            <p>"We transferred our daughter from another school in Class 7. The difference in engagement and confidence has been remarkable within just one term."</p>
-            <div className="testimonial-by">Sandeep Babu R — Father of Samruddhi S, Grade 8</div>
           </div>
         </div>
       </section>
