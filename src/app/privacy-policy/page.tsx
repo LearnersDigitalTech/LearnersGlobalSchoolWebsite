@@ -53,8 +53,8 @@ export default function PrivacyPolicy() {
       </p>
 
       <div style={{ marginTop: '48px', paddingTop: '24px', borderTop: '1px solid #e0e0e0' }}>
-        <Link href="/" style={{ color: '#1155a8', textDecoration: 'none' }}>
-          ← Back to Home
+        <Link href="/admission26" style={{ color: '#1155a8', textDecoration: 'none' }}>
+          ← Back
         </Link>
       </div>
     </div>
