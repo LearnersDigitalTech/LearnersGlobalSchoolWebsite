@@ -36,7 +36,7 @@ function getParam(name: string): string {
 
 // ── Google Script URL ────────────────────────────────────────────
 const GOOGLE_SCRIPT_URL =
-  'https://script.google.com/macros/s/AKfycbxLxPL2DWrMov6gow1OCi8O18jWg3SOX7MPGMz3YOwQw6tDMY_3DYIwnR2JddirE6PT/exec';
+  'https://script.google.com/macros/s/AKfycbyJ5NrgRlLqsHXgHvGE6eDfnBd3WjBWnuqUXze5FboHGY6U2nlkP90rpatAev5ijrhpQA/exec';
 
 // ────────────────────────────────────────────────────────────────
 export default function Admission26Page() {
