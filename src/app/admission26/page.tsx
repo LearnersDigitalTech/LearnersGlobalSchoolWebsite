@@ -1,3 +1,19 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Admissions Open 2026–27 | Learners Global School, Mysuru',
+  description: 'CBSE school in Sathagalli, Mysuru. Pre-KG to Class 12. Smart Classrooms, STEM Labs, JEE/NEET coaching. Enquire for 2026–27 admissions.',
+  openGraph: {
+    title: 'Admissions Open 2026–27 | Learners Global School, Mysuru',
+    description: 'CBSE school in Sathagalli, Mysuru. Pre-KG to Class 12. Smart Classrooms, STEM Labs, JEE/NEET coaching. Enquire for 2026–27 admissions.',
+    url: 'https://learnersglobalschool.com/admission26',
+    images: [{ url: '/images/Campus.webp', width: 1200, height: 630 }],
+  },
+};
+
+export default function Admission26Layout({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
+}
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
