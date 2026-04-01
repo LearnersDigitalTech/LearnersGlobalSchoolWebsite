@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Poppins } from "next/font/google";
 import "./globals.scss";
 import { EnquiryProvider } from "@/components/providers/EnquiryProvider";
@@ -11,7 +12,6 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  // Primary Meta Tags
   title: "Learners Global School Sathagalli | Premier CBSE School in Mysore",
   description: "Learners Global School Sathagalli - A leading CBSE school in Mysore dedicated to shaping future leaders of India through innovative education, holistic development, and world-class facilities. Admissions open for 2024-25.",
   keywords: [
@@ -29,8 +29,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Learners Global School" }],
   creator: "Learners Global School",
   publisher: "Learners Global School",
-
-  // Robots directives
   robots: {
     index: true,
     follow: true,
@@ -42,8 +40,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-
-  // Open Graph Tags (Facebook, LinkedIn, WhatsApp)
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -60,8 +56,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-
-  // Twitter Card Tags
   twitter: {
     card: "summary_large_image",
     title: "Learners Global School Sathagalli | Premier CBSE School in Mysore",
@@ -69,8 +63,6 @@ export const metadata: Metadata = {
     images: ["/LL.webp"],
     creator: "@LearnersGlobal",
   },
-
-  // Icons and Favicons
   icons: {
     icon: [
       { url: "/LL.webp", sizes: "32x32", type: "image/png" },
@@ -81,23 +73,13 @@ export const metadata: Metadata = {
     ],
     shortcut: "/LL.webp",
   },
-
-  // Verification and other meta tags
   verification: {
-    google: "your-google-verification-code", // Replace with actual Google Search Console verification code
-    // yandex: "your-yandex-verification-code",
-    // bing: "your-bing-verification-code",
+    google: "your-google-verification-code",
   },
-
-  // Canonical URL
   metadataBase: new URL("https://learnersglobalschool.com"),
-
-  // Additional metadata
   category: "Education",
   classification: "School",
 };
-
-
 
 export default function RootLayout({
   children,
@@ -106,7 +88,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* ✅ Google Tag Manager */}
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;
+            f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-5FL4XSKT');`,
+          }}
+        />
+      </head>
       <body className={poppins.variable}>
+        {/* ✅ GTM noscript fallback */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5FL4XSKT"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <EnquiryProvider>
           {children}
