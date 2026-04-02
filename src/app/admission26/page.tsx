@@ -242,7 +242,7 @@ export default function Admission26Page() {
       <header className="lgs-header">
         <a href="https://learnersglobalschool.com/" className="logo-wrap">
           <img src="https://learnersglobalschool.com/_next/image?url=%2Fimages%2F1.webp&w=128&q=75" alt="Learners Global School" style={{ height: 44, width: 'auto' }} onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-          <div className="logo-text">Learners Global School<small>Sathagalli, Mysuru · CBSE</small></div>
+          <div className="logo-text">Learners Global School&amp PU College<small>Sathagalli, Mysuru · CBSE</small></div>
         </a>
         <a href="tel:+919916933202" className="header-cta" onClick={handlePhone}>📞 9916933202</a>
       </header>
@@ -261,12 +261,12 @@ export default function Admission26Page() {
         <h1>Give Your Child the<br /><em>Best Start in Mysuru</em></h1>
         <p className="hero-sub">CBSE school with Smart Classrooms, STEM Labs &amp; JEE/NEET coaching — right here in Sathagalli, Mysuru.</p>
         <div className="hero-chips">
-          {['Pre-KG to Class 12','CBSE Board','10 km from Ring Road','IITIAN-Founder','NEP 2020 Aligned'].map(c => <span className="hero-chip" key={c}>{c}</span>)}
+          {['Pre-KG to Class 12','CBSE Board','Near Ring Road','IITian-Founder','NEP 2020 Aligned'].map(c => <span className="hero-chip" key={c}>{c}</span>)}
         </div>
         <div className="trust-row">
-          <div className="trust-item"><strong>30+</strong> Years of Excellence</div>
+          <div className="trust-item"><strong>15+</strong> Years of Excellence</div>
           <div className="trust-item" style={{color:'rgba(255,255,255,0.3)'}}>|</div>
-          <div className="trust-item"><strong>Infosys</strong> Collaborated</div>
+          <div className="trust-item"><strong>Industry</strong> Collaborated</div>
           <div className="trust-item" style={{color:'rgba(255,255,255,0.3)'}}>|</div>
           <div className="trust-item"><strong>Limited</strong> Seats Left</div>
         </div>
@@ -311,7 +311,7 @@ export default function Admission26Page() {
                     <label htmlFor="classApplying">Applying for Class <span>*</span></label>
                     <select id="classApplying" required value={form.classApplying} onChange={e => setForm({...form, classApplying: e.target.value})}>
                       <option value="">Select class</option>
-                      {['Pre-KG / Nursery','KG 1','KG 2','Class 1','Class 2','Class 3','Class 4','Class 5','Class 6','Class 7','Class 8','Class 9','Class 10','Class 11 – Science (JEE/NEET)','Class 11 – Commerce','Class 11 – Arts','Class 12'].map(c => <option key={c}>{c}</option>)}
+                      {['Pre-KG / Nursery','KG 1','KG 2','Class 1','Class 2','Class 3','Class 4','Class 5','Class 6','Class 7','Class 8','Class 9','Class 10','Class 11 – Science (JEE/NEET)','Class 12'].map(c => <option key={c}>{c}</option>)}
                     </select>
                   </div>
                 </div>
@@ -336,9 +336,9 @@ export default function Admission26Page() {
 
       <div className="stats-band">
         <div className="stats-inner">
-          <div><div className="stat-n">30+</div><div className="stat-l">Years of Excellence</div></div>
+          <div><div className="stat-n">15+</div><div className="stat-l">Years of Excellence</div></div>
           <div><div className="stat-n">Pre-KG<br />–12</div><div className="stat-l">All Classes</div></div>
-          <div><div className="stat-n">10km</div><div className="stat-l">From Ring Road</div></div>
+          <div><div className="stat-n">Near</div><div className="stat-l">Ring Road</div></div>
           <div><div className="stat-n">IIT</div><div className="stat-l">Trained Faculty</div></div>
         </div>
       </div>
@@ -352,7 +352,7 @@ export default function Admission26Page() {
               ['IIT-Trained Faculty Leadership','School founded and led by IIT-trained educators with decades of experience building high-achieving students.'],
               ['Integrated JEE & NEET Coaching','For Class 11–12 Science, competitive exam coaching is woven into daily curriculum — not an add-on.'],
               ['Smart Classrooms & STEM Labs','Technology-first learning with interactive displays, robotics, and digital tools preparing students for tomorrow.'],
-              ['Collaborated with Infosys, L&T, NH','Industry partnerships that bring real-world exposure and learning opportunities to our students.'],
+              ['Collaborated with Industry','Industry partnerships that bring real-world exposure and learning opportunities to our students.'],
               ['NEP 2020 Aligned Curriculum','Flexible, multidisciplinary education framework focused on holistic development, creativity, and critical thinking.'],
             ].map(([title, text], i) => (
               <div className="why-item" key={i}>
@@ -379,7 +379,7 @@ export default function Admission26Page() {
           <p className="section-sub">Tailored learning at every stage of your child's growth journey.</p>
           <div className="stages">
             {[
-              ['Pre-KG – Class 2','Foundational Stage','Play-based learning, skill development, love for reading and discovery.'],
+              ['Pre-KG– Class 2','Foundational Stage','Play-based learning, skill development, love for reading and discovery.'],
               ['Class 3 – 5','Preparatory Stage','Building strong literacy, numeracy, and scientific foundations.'],
               ['Class 6 – 8','Middle Stage','Critical thinking, inquiry-based learning, and exploration of subjects.'],
               ['Class 9 – 10','Secondary Stage','Academic rigour, CBSE board preparation, and holistic development.'],
@@ -414,13 +414,7 @@ export default function Admission26Page() {
         </div>
       </section>
 
-      <div className="collab-band">
-        <p>In Collaboration With</p>
-        <div className="collab-logos">
-          {['Infosys','L&T','Narayana Health','ToastMasters','Art of Living','Bagaria Foundation'].map(c => <span key={c}>{c}</span>)}
-        </div>
-      </div>
-
+      
       <section className="visit-cta">
         <h2>Seats Are Filling Fast</h2>
         <p>2026–27 admissions are open now. Enquire today to ensure your child's seat at Learners Global School, Sathagalli.</p>
@@ -431,7 +425,7 @@ export default function Admission26Page() {
       </section>
 
       <footer className="lgs-footer">
-        <strong>Learners Global School</strong><br />
+        <strong>Learners Global School & PU College </strong><br />
         Sathagalli, Mysore, Karnataka 570029<br />
         <a href="tel:+919916933202" onClick={handlePhone}>+91 9916933202</a> · <a href="mailto:admissions@learnersdigital.com">admissions@learnersdigital.com</a><br /><br />
         <small>© 2026 Learners Global School. All rights reserved. · <a href="/privacy-policy">Privacy Policy</a></small>
