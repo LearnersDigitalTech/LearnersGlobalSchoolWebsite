@@ -350,7 +350,7 @@ export default function Admission26Page() {
           <div className="why-list">
             {[
               ['IIT-Trained Faculty Leadership','School founded and led by IIT-trained educators with decades of experience building high-achieving students.'],
-              ['Integrated JEE & NEET Coaching','For Class 11–12 Science, competitive exam coaching is woven into daily curriculum — not an add-on.'],
+              ['Integrated JEE & NEET Coaching','For Class 9–12 Science, competitive exam coaching is woven into daily curriculum — not an add-on.'],
               ['Smart Classrooms & STEM Labs','Technology-first learning with interactive displays, robotics, and digital tools preparing students for tomorrow.'],
               ['Collaboration with Industry','Industry partnerships that bring real-world exposure and learning opportunities to our students.'],
               ['NEP 2020 Aligned Curriculum','Flexible, multidisciplinary education framework focused on holistic development, creativity, and critical thinking.'],
@@ -383,7 +383,7 @@ export default function Admission26Page() {
               ['Class 3 – 5','Preparatory Stage','Building strong literacy, numeracy, and scientific foundations.'],
               ['Class 6 – 8','Middle Stage','Critical thinking, inquiry-based learning, and exploration of subjects.'],
               ['Class 9 – 10','Secondary Stage','Academic rigour, CBSE board preparation, and holistic development.'],
-              ['Class 11 – 12','Senior Secondary','Science streams PCMC / PCMB with JEE/NEET focused expert faculty guidance.'],
+              ['Class 11 – 12','Senior Secondary','Science streams PCMC / PCMB with CET/JEE/NEET focused expert faculty guidance.'],
             ].map(([badge, title, text]) => (
               <div className="stage-item" key={badge}>
                 <span className="stage-badge">{badge}</span>
