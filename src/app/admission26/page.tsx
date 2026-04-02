@@ -242,7 +242,7 @@ export default function Admission26Page() {
       <header className="lgs-header">
         <a href="https://learnersglobalschool.com/" className="logo-wrap">
           <img src="https://learnersglobalschool.com/_next/image?url=%2Fimages%2F1.webp&w=128&q=75" alt="Learners Global School" style={{ height: 44, width: 'auto' }} onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-          <div className="logo-text">Learners Global School&amp PU College<small>Sathagalli, Mysuru · CBSE</small></div>
+          <div className="logo-text">Learners Global School & PU College<small>Sathagalli, Mysuru · CBSE</small></div>
         </a>
         <a href="tel:+919916933202" className="header-cta" onClick={handlePhone}>📞 9916933202</a>
       </header>
@@ -338,7 +338,7 @@ export default function Admission26Page() {
         <div className="stats-inner">
           <div><div className="stat-n">15+</div><div className="stat-l">Years of Excellence</div></div>
           <div><div className="stat-n">Pre-KG<br />–12</div><div className="stat-l">All Classes</div></div>
-          <div><div className="stat-n">Near</div><div className="stat-l">Ring Road</div></div>
+          <div><div className="stat-n">Adjacent</div><div className="stat-l">Ring Road</div></div>
           <div><div className="stat-n">IIT</div><div className="stat-l">Trained Faculty</div></div>
         </div>
       </div>
@@ -352,7 +352,7 @@ export default function Admission26Page() {
               ['IIT-Trained Faculty Leadership','School founded and led by IIT-trained educators with decades of experience building high-achieving students.'],
               ['Integrated JEE & NEET Coaching','For Class 11–12 Science, competitive exam coaching is woven into daily curriculum — not an add-on.'],
               ['Smart Classrooms & STEM Labs','Technology-first learning with interactive displays, robotics, and digital tools preparing students for tomorrow.'],
-              ['Collaborated with Industry','Industry partnerships that bring real-world exposure and learning opportunities to our students.'],
+              ['Collaboration with Industry','Industry partnerships that bring real-world exposure and learning opportunities to our students.'],
               ['NEP 2020 Aligned Curriculum','Flexible, multidisciplinary education framework focused on holistic development, creativity, and critical thinking.'],
             ].map(([title, text], i) => (
               <div className="why-item" key={i}>
@@ -379,7 +379,7 @@ export default function Admission26Page() {
           <p className="section-sub">Tailored learning at every stage of your child's growth journey.</p>
           <div className="stages">
             {[
-              ['Pre-KG– Class 2','Foundational Stage','Play-based learning, skill development, love for reading and discovery.'],
+              ['PreKG–Class2','Foundational Stage','Play-based learning, skill development, love for reading and discovery.'],
               ['Class 3 – 5','Preparatory Stage','Building strong literacy, numeracy, and scientific foundations.'],
               ['Class 6 – 8','Middle Stage','Critical thinking, inquiry-based learning, and exploration of subjects.'],
               ['Class 9 – 10','Secondary Stage','Academic rigour, CBSE board preparation, and holistic development.'],
