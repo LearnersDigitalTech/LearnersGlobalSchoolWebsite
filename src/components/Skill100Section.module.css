@@ -1,0 +1,189 @@
+/* ── Skill100Section.module.css ── */
+
+.section {
+  background: linear-gradient(160deg, #f0faff 0%, #edfbf2 100%);
+  padding: 44px 20px;
+  border-top: 3px solid #e0f0ff;
+}
+
+.inner {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.logoLink {
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 10px;
+  transition: opacity 0.15s;
+}
+.logoLink:hover {
+  opacity: 0.8;
+}
+
+.logoText {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.teal { color: #00b4cc; }
+.green { color: #22c55e; }
+
+.aiBadge {
+  display: inline-block;
+  background: linear-gradient(90deg, #00b4cc, #22c55e);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0c2a52;
+  margin-bottom: 10px;
+}
+
+.desc {
+  font-size: 14px;
+  color: #4a6a8a;
+  line-height: 1.75;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 500px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card */
+.card {
+  background: #fff;
+  border: 1.5px solid #ddeeff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(12, 42, 82, 0.07);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 32px rgba(0, 180, 204, 0.15);
+  border-color: #00b4cc;
+}
+
+/* Image wrapper — must be position:relative for Next.js fill */
+.imgWrap {
+  position: relative;
+  height: 140px;
+  overflow: hidden;
+  background: #f0f7ff;
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.card:hover .img {
+  transform: scale(1.04);
+}
+
+/* Badge */
+.campusBadge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #1155a8;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 5px;
+  letter-spacing: 0.06em;
+  z-index: 1;
+}
+
+.badgeGreen {
+  background: #1a6b43;
+}
+
+/* Card body */
+.cardBody {
+  padding: 14px 14px 16px;
+  text-align: center;
+}
+
+.cardTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0c2a52;
+  margin-bottom: 5px;
+  line-height: 1.35;
+}
+
+.cardLoc {
+  font-size: 12px;
+  color: #4a6a8a;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.cardLink {
+  font-size: 12px;
+  font-weight: 600;
+  color: #00b4cc;
+  display: inline-block;
+  transition: color 0.15s;
+}
+
+.card:hover .cardLink {
+  color: #0091a6;
+}
+
+/* Tagline */
+.tagline {
+  text-align: center;
+  font-size: 13px;
+  color: #4a6a8a;
+  background: #fff;
+  border: 1px solid #ddeeff;
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.taglineLink {
+  color: #00b4cc;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.taglineLink:hover {
+  text-decoration: underline;
+}
