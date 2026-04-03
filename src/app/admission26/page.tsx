@@ -261,7 +261,7 @@ export default function Admission26Page() {
         <h1>Give Your Child the<br /><em>Best Start in Mysuru</em></h1>
         <p className="hero-sub">CBSE school with Smart Classrooms, STEM Labs &amp; JEE/NEET coaching — right here in Sathagalli, Mysuru.</p>
         <div className="hero-chips">
-          {['Pre-KG to Class 12','CBSE Board','Residential Campus','IITian-Founder','NEP 2020 Aligned'].map(c => <span className="hero-chip" key={c}>{c}</span>)}
+          {['Pre-KG to Class 12','CBSE Board','Residential Campus','IITian-Founder','NEP 2020 Aligned','Integrated with Skill100.ai'].map(c => <span className="hero-chip" key={c}>{c}</span>)}
         </div>
         <div className="trust-row">
           <div className="trust-item"><strong>15+</strong> Years of Excellence</div>
@@ -337,7 +337,7 @@ export default function Admission26Page() {
       <div className="stats-band">
         <div className="stats-inner">
           <div><div className="stat-n">15+</div><div className="stat-l">Years of Excellence</div></div>
-          <div><div className="stat-n">Pre-KG to 12</div><div className="stat-l">All Classes</div></div>
+          <div><div className="stat-n">Pre-KG~12</div><div className="stat-l">All Classes</div></div>
           <div><div className="stat-n">Residential</div><div className="stat-l"> Campus</div></div>
           <div><div className="stat-n">IIT</div><div className="stat-l">Trained Faculty</div></div>
         </div>
@@ -351,7 +351,7 @@ export default function Admission26Page() {
             {[
               ['IIT-Trained Faculty Leadership','School founded and led by IIT-trained educators with decades of experience building high-achieving students.'],
               ['Integrated JEE & NEET Coaching','For Class 9–12 Science, competitive exam coaching is woven into daily curriculum — not an add-on.'],
-              ['Smart Classrooms & STEM Labs','Technology-first learning with interactive displays, robotics, and digital tools preparing students for tomorrow.'],
+              ['Smart Classrooms & STEM Labs','Technology-first learning with interactive displays, robotics, and integrated with Skill100.ai digital tools preparing students for tomorrow.'],
               ['Collaboration with Industry','Industry partnerships that bring real-world exposure and learning opportunities to our students.'],
               ['NEP 2020 Aligned Curriculum','Flexible, multidisciplinary education framework focused on holistic development, creativity, and critical thinking.'],
             ].map(([title, text], i) => (
