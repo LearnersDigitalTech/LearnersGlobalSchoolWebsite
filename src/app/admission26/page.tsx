@@ -261,7 +261,7 @@ export default function Admission26Page() {
         <h1>Give Your Child the<br /><em>Best Start in Mysuru</em></h1>
         <p className="hero-sub">CBSE school with Smart Classrooms, STEM Labs &amp; JEE/NEET coaching — right here in Sathagalli, Mysuru.</p>
         <div className="hero-chips">
-          {['Pre-KG to Class 12','CBSE Board','Near Ring Road','IITian-Founder','NEP 2020 Aligned'].map(c => <span className="hero-chip" key={c}>{c}</span>)}
+          {['Pre-KG to Class 12','CBSE Board','Residential Campus','IITian-Founder','NEP 2020 Aligned'].map(c => <span className="hero-chip" key={c}>{c}</span>)}
         </div>
         <div className="trust-row">
           <div className="trust-item"><strong>15+</strong> Years of Excellence</div>
@@ -337,8 +337,8 @@ export default function Admission26Page() {
       <div className="stats-band">
         <div className="stats-inner">
           <div><div className="stat-n">15+</div><div className="stat-l">Years of Excellence</div></div>
-          <div><div className="stat-n">Pre-KG<br />–12</div><div className="stat-l">All Classes</div></div>
-          <div><div className="stat-n">Adjacent</div><div className="stat-l">Ring Road</div></div>
+          <div><div className="stat-n">Pre-KG to 12</div><div className="stat-l">All Classes</div></div>
+          <div><div className="stat-n">Residential</div><div className="stat-l"> Campus</div></div>
           <div><div className="stat-n">IIT</div><div className="stat-l">Trained Faculty</div></div>
         </div>
       </div>
