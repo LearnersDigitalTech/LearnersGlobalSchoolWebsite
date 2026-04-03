@@ -425,6 +425,15 @@ export default function Admission26Page() {
       </section>
 
 
+   <section className="visit-cta">
+        <h2>Seats Are Filling Fast</h2>
+        <p>2026–27 admissions are open now. Enquire today to ensure your child&apos;s seat at Learners Global School, Sathagalli.</p>
+        <div className="cta-buttons">
+          <button className="cta-btn cta-btn-primary" onClick={scrollToForm}>📝 Enquire Now</button>
+          <a href="https://wa.me/919916933202?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20admissions%20for%202026-27." className="cta-btn cta-btn-wa" target="_blank" rel="noopener noreferrer" onClick={handleWA}>💬 WhatsApp Us</a>
+        </div>
+      </section>
+
       {/* ── Skill100.ai Learning Centres ── */}
       <section style={{ background: 'linear-gradient(160deg, #f0faff 0%, #edfbf2 100%)', padding: '44px 20px', borderTop: '3px solid #e0f0ff' }}>
         <div style={{ maxWidth: '620px', margin: '0 auto' }}>
@@ -517,8 +526,6 @@ export default function Admission26Page() {
         </div>
       </section>
       {/* ── End Skill100.ai Section ── */}
-
-</section>
 
       <footer className="lgs-footer">
         <strong>Learners Global School &amp; PU College </strong><br />
