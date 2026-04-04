@@ -379,7 +379,7 @@ export default function Admission26Page() {
           <p className="section-sub">Tailored learning at every stage of your child's growth journey.</p>
           <div className="stages">
             {[
-              ['PreKG–Class2','Foundational Stage','Play-based learning, skill development, love for reading and discovery.'],
+              ['PreKG–Class2','Foundational Stage','Montessori-based learning building curiosity, independence, and a love for discovery.'],
               ['Class 3 – 5','Preparatory Stage','Building strong literacy, numeracy, and scientific foundations.'],
               ['Class 6 – 8','Middle Stage','Critical thinking, inquiry-based learning, and exploration of subjects.'],
               ['Class 9 – 10','Secondary Stage','Academic rigour, CBSE board preparation, and holistic development.'],
