@@ -351,7 +351,7 @@ export default function Admission26Page() {
             {[
               ['IIT-Trained Faculty Leadership','School founded and led by IIT-trained educators with decades of experience building high-achieving students.'],
               ['Integrated JEE & NEET Coaching','For Class 9–12 Science, competitive exam coaching is woven into daily curriculum — not an add-on.'],
-              ['Smart Classrooms & STEM Labs','Technology-first learning with interactive displays, robotics, and integrated with Skill100.ai digital tools preparing students for tomorrow.'],
+              ['Smart Classrooms & STEM Labs','Technology accelerated learning with interactive displays, robotics, and integrated with Skill100.ai digital tools preparing students for tomorrow.'],
               ['Collaboration with Industry','Industry partnerships that bring real-world exposure and learning opportunities to our students.'],
               ['NEP 2020 Aligned Curriculum','Flexible, multidisciplinary education framework focused on holistic development, creativity, and critical thinking.'],
             ].map(([title, text], i) => (
