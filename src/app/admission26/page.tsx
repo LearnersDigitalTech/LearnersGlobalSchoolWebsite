@@ -25,6 +25,23 @@ export default function Admission26Page() {
   const formRef = useRef<HTMLDivElement>(null);
   const [utm, setUtm] = useState({ source: '', medium: '', campaign: '', keyword: '', ad: '', gclid: '' });
 
+  // Math CAPTCHA state
+  const [captcha, setCaptcha] = useState<{ a: number; b: number; op: string; answer: number }>({ a: 0, b: 0, op: '+', answer: 0 });
+  const [captchaInput, setCaptchaInput] = useState('');
+  const [captchaError, setCaptchaError] = useState(false);
+
+  const generateCaptcha = () => {
+    const ops = ['+', '-', '×'];
+    const op = ops[Math.floor(Math.random() * ops.length)];
+    let a = Math.floor(Math.random() * 10) + 1;
+    let b = Math.floor(Math.random() * 10) + 1;
+    if (op === '-' && b > a) [a, b] = [b, a]; // ensure non-negative result
+    const answer = op === '+' ? a + b : op === '-' ? a - b : a * b;
+    setCaptcha({ a, b, op, answer });
+    setCaptchaInput('');
+    setCaptchaError(false);
+  };
+
   useEffect(() => {
     const gclid = getParam('gclid');
     setUtm({
@@ -35,6 +52,7 @@ export default function Admission26Page() {
       ad: getParam('utm_content'),
       gclid,
     });
+    generateCaptcha();
   }, []);
 
   const scrollToForm = () => {
@@ -52,6 +70,13 @@ export default function Admission26Page() {
     if (digits.length < 10) { alert('Please enter a valid 10-digit number.'); return; }
     if (!form.childName.trim()) { alert("Please enter your child's name."); return; }
     if (!form.classApplying) { alert('Please select the class.'); return; }
+
+    // CAPTCHA check
+    if (parseInt(captchaInput, 10) !== captcha.answer) {
+      setCaptchaError(true);
+      generateCaptcha();
+      return;
+    }
 
     setLoading(true);
     setBtnText('Submitting…');
@@ -322,6 +347,65 @@ export default function Admission26Page() {
                 <div className="form-group">
                   <label htmlFor="message">Any specific questions? (optional)</label>
                   <textarea id="message" rows={3} placeholder="e.g. JEE/NEET coaching details, transport, boarding…" value={form.message} onChange={e => setForm({...form, message: e.target.value})} />
+                </div>
+                <div className="form-group" style={{ marginBottom: '16px' }}>
+                  <label htmlFor="captcha" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                    Verify you're human <span>*</span>
+                  </label>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+                    <div style={{
+                      background: 'linear-gradient(135deg, #e8f2fb, #d0dde8)',
+                      border: '1px solid var(--border)',
+                      borderRadius: '8px',
+                      padding: '10px 18px',
+                      fontFamily: 'monospace',
+                      fontSize: '20px',
+                      fontWeight: 700,
+                      color: 'var(--navy)',
+                      letterSpacing: '2px',
+                      userSelect: 'none',
+                      minWidth: '120px',
+                      textAlign: 'center',
+                    }}>
+                      {captcha.a} {captcha.op} {captcha.b} = ?
+                    </div>
+                    <input
+                      id="captcha"
+                      type="number"
+                      placeholder="Answer"
+                      value={captchaInput}
+                      onChange={e => { setCaptchaInput(e.target.value); setCaptchaError(false); }}
+                      style={{
+                        width: '90px',
+                        padding: '10px 12px',
+                        border: captchaError ? '2px solid #dc2626' : '1px solid var(--border)',
+                        borderRadius: '8px',
+                        fontSize: '16px',
+                        fontFamily: 'var(--sans)',
+                        color: 'var(--text)',
+                        outline: 'none',
+                      }}
+                    />
+                    <button
+                      type="button"
+                      onClick={generateCaptcha}
+                      title="Get a new question"
+                      style={{
+                        background: 'none',
+                        border: '1px solid var(--border)',
+                        borderRadius: '8px',
+                        padding: '8px 12px',
+                        cursor: 'pointer',
+                        fontSize: '18px',
+                        color: 'var(--muted)',
+                      }}
+                    >🔄</button>
+                  </div>
+                  {captchaError && (
+                    <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '6px' }}>
+                      ❌ Incorrect answer. Please try the new question.
+                    </p>
+                  )}
                 </div>
                 <button type="submit" className="submit-btn" disabled={loading}>{btnText}</button>
                 <p className="form-note">
