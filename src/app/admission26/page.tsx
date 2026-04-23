@@ -17,9 +17,29 @@ function getParam(name: string): string {
 
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyJ5NrgRlLqsHXgHvGE6eDfnBd3WjBWnuqUXze5FboHGY6U2nlkP90rpatAev5ijrhpQA/exec';
 
+// ── Fast2SMS config ──────────────────────────────────────────────────────────
+// 1. Sign up at https://www.fast2sms.com  (free ₹50 credit on signup)
+// 2. Go to Dev API → API Key → copy it here
+const FAST2SMS_API_KEY = 'CA0TbIG4OpHEh7olkzwq2uy8SULFstZ9DJY1xiQfKPMWeRdmnjIbMpuOJnEc1G5saFZwCDYP2N6r7Rqo';
+
+async function sendSMS(phone: string, parentName: string, childName: string, classApplying: string) {
+  // phone arrives as '+91XXXXXXXXXX' — strip to 10 digits
+  const digits = phone.replace(/\D/g, '').slice(-10);
+  const message = `Dear ${parentName}, your enquiry for ${childName} (${classApplying}) at Learners Global School has been received. Our counsellor will call you shortly. - LGS Admissions 9916933202`;
+  try {
+    await fetch('https://www.fast2sms.com/dev/bulkV2', {
+      method: 'POST',
+      headers: { authorization: FAST2SMS_API_KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ route: 'q', message, language: 'english', flash: 0, numbers: digits }),
+    });
+  } catch (_) { /* SMS failure should never block the form */ }
+}
+// ────────────────────────────────────────────────────────────────────────────
+
 export default function Admission26Page() {
   const [form, setForm] = useState({ parentName: '', phone: '', email: '', childName: '', classApplying: '', locality: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [submittedName, setSubmittedName] = useState('');
   const [loading, setLoading] = useState(false);
   const [btnText, setBtnText] = useState('Book My Free Campus Visit →');
   const formRef = useRef<HTMLDivElement>(null);
@@ -67,9 +87,11 @@ export default function Admission26Page() {
     e.preventDefault();
     const digits = form.phone.replace(/\D/g, '');
     if (!form.parentName.trim()) { alert('Please enter your name.'); return; }
-    if (digits.length < 10) { alert('Please enter a valid 10-digit number.'); return; }
+    if (digits.length < 10) { alert('Please enter a valid 10-digit mobile number.'); return; }
     if (!form.childName.trim()) { alert("Please enter your child's name."); return; }
     if (!form.classApplying) { alert('Please select the class.'); return; }
+    // Locality is now required
+    if (!form.locality.trim()) { alert('Please enter your area / locality in Mysuru so we can assign the right counsellor.'); return; }
 
     // CAPTCHA check
     if (parseInt(captchaInput, 10) !== captcha.answer) {
@@ -81,11 +103,12 @@ export default function Admission26Page() {
     setLoading(true);
     setBtnText('Submitting…');
 
+    const phoneFormatted = '+91' + digits.slice(-10);
     const now = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
     const payload = {
       timestamp: now,
       parentName: form.parentName.trim(),
-      phone: '+91' + digits.slice(-10),
+      phone: phoneFormatted,
       email: form.email.trim(),
       childName: form.childName.trim(),
       classApplying: form.classApplying,
@@ -97,13 +120,15 @@ export default function Admission26Page() {
       device: typeof navigator !== 'undefined' && /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
     };
 
-    try {
-      await fetch(GOOGLE_SCRIPT_URL, {
+    // Fire Google Sheet save + SMS in parallel — neither blocks the UI
+    await Promise.allSettled([
+      fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST', mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
-      });
-    } catch (_) {}
+      }),
+      sendSMS(phoneFormatted, form.parentName.trim(), form.childName.trim(), form.classApplying),
+    ]);
 
     pushEvent('form_submit', { form_name: 'admission_enquiry', child_grade: form.classApplying });
     if (typeof window !== 'undefined' && window.gtag) {
@@ -111,6 +136,7 @@ export default function Admission26Page() {
     }
 
     setLoading(false);
+    setSubmittedName(form.parentName.trim().split(' ')[0]); // first name for success message
     setSubmitted(true);
     formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -302,8 +328,12 @@ export default function Admission26Page() {
           {submitted ? (
             <div className="success-state">
               <div className="success-icon">✅</div>
-              <h3>Enquiry Received!</h3>
-              <p>Thank you! Our admissions counsellor will call you within a few hours to schedule your campus visit at no charge. Please keep your phone handy.</p>
+              <h3>Application Received{submittedName ? `, ${submittedName}!` : '!'}</h3>
+              <p style={{ marginBottom: '12px' }}>Your child's admission enquiry has been successfully submitted. Our admissions counsellor will call you <strong>within a few hours</strong> to schedule your free campus visit.</p>
+              <div style={{ background: '#e8f5ed', border: '1px solid #b7dfca', borderRadius: '8px', padding: '12px 16px', marginBottom: '20px', fontSize: '13px', color: '#1a6b43', textAlign: 'left', lineHeight: 1.6 }}>
+                📱 <strong>Check your SMS</strong> — we've sent a confirmation to your mobile number.<br />
+                📞 Our counsellor will call from <strong>+91 9916933202</strong> — please save this number.
+              </div>
               <a href="https://wa.me/919916933202?text=Hi%2C%20I%20just%20enquired%20about%20admissions%20for%202026-27." className="whatsapp-btn" target="_blank" rel="noopener noreferrer" onClick={handleWA}>💬 Chat on WhatsApp</a>
             </div>
           ) : (
@@ -341,8 +371,8 @@ export default function Admission26Page() {
                   </div>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="locality">Your Area / Locality in Mysuru</label>
-                  <input id="locality" type="text" placeholder="e.g. Kuvempunagar, Vijaynagar, Bogadi…" value={form.locality} onChange={e => setForm({...form, locality: e.target.value})} />
+                  <label htmlFor="locality">Your Area / Locality in Mysuru <span>*</span></label>
+                  <input id="locality" type="text" placeholder="e.g. Kuvempunagar, Vijaynagar, Bogadi…" required value={form.locality} onChange={e => setForm({...form, locality: e.target.value})} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="message">Any specific questions? (optional)</label>
