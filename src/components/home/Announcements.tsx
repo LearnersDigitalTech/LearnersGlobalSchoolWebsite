@@ -32,19 +32,6 @@ const announcements = [
         actionText: 'View Performance',
         actionLink: '/gallery/learners-annual-day-25',
         color: 'purple'
-    },
-    {
-        month: 'JAN',
-        day: '15',
-        year: '2026',
-        title: 'Admissions Open 2026-27',
-        date: 'Wednesday, January 15th',
-        description: 'Join the Learners community. Applications for the new academic year are now open.',
-        actionTitle: 'SECURE YOUR SEAT',
-        actionDescription: 'Early bird registration benefits available for a limited time. Apply now!',
-        actionText: 'Apply Now',
-        actionLink: '/admissions',
-        color: 'green'
     }
 ];
 

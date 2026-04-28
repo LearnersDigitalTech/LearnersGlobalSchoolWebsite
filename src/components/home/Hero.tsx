@@ -12,7 +12,7 @@ export const Hero = () => {
     const [isVirtualTourOpen, setIsVirtualTourOpen] = React.useState(false);
     const heroImages = [
         '/images/Campus.webp',
-        '/images/student-of-the-week/top.webp'
+        '/images/State-7th-Toppers.png'
     ];
 
     const heroCaptions = [
