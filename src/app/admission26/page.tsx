@@ -81,7 +81,13 @@ export default function Admission26Page() {
   };
 
   const handlePhone = () => pushEvent('phone_call_click', { phone_number: '+919916933202' });
-  const handleWA = () => pushEvent('whatsapp_click', { phone_number: '919916933202' });
+  const handleWA = () => {
+    pushEvent('whatsapp_click', { phone_number: '919916933202' });
+    // Redirect to Thank You page so conversion fires correctly
+    setTimeout(() => {
+      window.location.href = '/thank-you-lgs?source=whatsapp';
+    }, 400); // small delay so WhatsApp tab can open first
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -131,14 +137,12 @@ export default function Admission26Page() {
     ]);
 
     pushEvent('form_submit', { form_name: 'admission_enquiry', child_grade: form.classApplying });
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'conversion', { send_to: 'AW-18041287506' });
-    }
 
     setLoading(false);
-    setSubmittedName(form.parentName.trim().split(' ')[0]); // first name for success message
-    setSubmitted(true);
-    formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Redirect to dedicated Thank You page — conversion tag fires there, not here
+    const firstName = form.parentName.trim().split(' ')[0];
+    const cls = encodeURIComponent(form.classApplying);
+    window.location.href = `/thank-you-lgs?name=${encodeURIComponent(firstName)}&class=${cls}&source=form`;
   };
 
   return (
@@ -477,6 +481,38 @@ export default function Admission26Page() {
           </div>
         </div>
       </section>
+
+      {/* ── Campus Video ── */}
+      <section className="lgs-section" style={{background:'var(--off)',paddingBottom:'8px'}}>
+        <div className="section-inner">
+          <h2 className="section-head">See Our Campus</h2>
+          <p className="section-sub">Take a virtual tour of Learners Global School — classrooms, labs, and more.</p>
+          <div style={{
+            position:'relative',
+            paddingBottom:'56.25%', // 16:9
+            height:0,
+            overflow:'hidden',
+            borderRadius:'10px',
+            boxShadow:'0 4px 24px rgba(12,42,82,0.12)',
+            border:'1px solid #d0dde8',
+          }}>
+            <iframe
+              src="https://www.youtube.com/embed/-xn6dGhQf-g?rel=0&modestbranding=1"
+              title="Learners Global School Campus Tour"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                position:'absolute',
+                top:0, left:0,
+                width:'100%', height:'100%',
+                border:'none',
+                borderRadius:'10px',
+              }}
+            />
+          </div>
+        </div>
+      </section>
+      {/* ── End Campus Video ── */}
 
       <section className="lgs-section" style={{background:'var(--off)'}}>
         <div className="section-inner">
