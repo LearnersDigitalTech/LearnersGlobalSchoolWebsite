@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description: "Shaping future leaders of India through innovative CBSE education, holistic development, and world-class facilities in Mysore. Admissions open for 2026-27.",
     images: [
       {
-        url: "/LL.webp",
+        url: "/LL.png",
         width: 1200,
         height: 630,
         alt: "Learners Global School Logo",
@@ -60,18 +60,18 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Learners Global School Sathagalli | Premier CBSE School in Mysore",
     description: "Shaping future leaders of India through innovative CBSE education and holistic development in Mysore.",
-    images: ["/LL.webp"],
+    images: ["/LL.png"],
     creator: "@LearnersGlobal",
   },
   icons: {
     icon: [
-      { url: "/LL.webp", sizes: "32x32", type: "image/png" },
-      { url: "/LL.webp", sizes: "16x16", type: "image/png" },
+      { url: "/LL.png", sizes: "32x32", type: "image/png" },
+      { url: "/LL.png", sizes: "16x16", type: "image/png" },
     ],
     apple: [
-      { url: "/LL.webp", sizes: "180x180", type: "image/png" },
+      { url: "/LL.png", sizes: "180x180", type: "image/png" },
     ],
-    shortcut: "/LL.webp",
+    shortcut: "/LL.png",
   },
   verification: {
     google: "your-google-verification-code",

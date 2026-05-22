@@ -8,7 +8,7 @@ export const metadata: Metadata = {
         title: "Contact Us | Learners Global School Sathagalli",
         description: "Get in touch with us for admissions, campus visits, or any queries. We're located in Sathagalli, Mysore.",
         url: "https://learnersglobalschool.com/connect",
-        images: [{ url: "/LL.webp", width: 1200, height: 630, alt: "Contact Learners Global School" }],
+        images: [{ url: "/LL.png", width: 1200, height: 630, alt: "Contact Learners Global School" }],
     },
 };
 
