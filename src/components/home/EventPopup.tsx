@@ -6,8 +6,8 @@ import Image from 'next/image';
 import styles from './EventPopup.module.scss';
 
 const results = [
-    { src: '/images/results/001-jahnavi.png', alt: 'Sujel Mog – State 7th Topper, 593/600' },
-    { src: '/images/results/002-sujel.png', alt: 'Jahnavi S – State 7th Topper, 593/600' },
+    { src: '/images/results/001-jahnavi.png', alt: 'Jahnavi S – State 4th Topper, 596/600' },
+    { src: '/images/results/002-sujel.png', alt: 'Sujel Mog – State 7th Topper, 593/600' },
     { src: '/images/results/003-yoshita.jpeg', alt: 'Yoshita Konareddy – State 9th Rank, 98.72%' },
     { src: '/images/results/004-sophiya.png', alt: 'Sophiya Ali Khan – 97.76%' },
 ];
