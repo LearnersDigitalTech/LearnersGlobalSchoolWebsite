@@ -63,6 +63,9 @@ export const Header = () => {
                             {item.label}
                         </Link>
                     ))}
+                    <a href="https://www.skill100.ai/neet" className={styles.neetLink}>
+                        NEET
+                    </a>
                     <Button onClick={openEnquiry} variant="primary" size="sm">
                         Enquire Now
                     </Button>
@@ -88,6 +91,9 @@ export const Header = () => {
                                 {item.label}
                             </Link>
                         ))}
+                        <a href="https://www.skill100.ai/neet" className={styles.mobileNeetLink}>
+                            NEET — 81% success · Enter Learners NEET →
+                        </a>
                         <div className={styles.mobileCta}>
                             <Button onClick={() => {
                                 setIsMobileMenuOpen(false);

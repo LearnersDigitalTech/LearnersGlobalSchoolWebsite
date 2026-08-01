@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
+import { NeetSpotlight } from "@/components/home/NeetSpotlight";
 import { Streams } from "@/components/home/Streams";
 import { Methodology } from "@/components/home/Methodology";
 import { Mentors } from "@/components/home/Mentors";
@@ -38,6 +39,7 @@ export default function Home() {
       {/* <CelestiaPopup /> */}
       <Header />
       <Hero />
+      <NeetSpotlight />
       <Announcements />
       <Streams />
       <Methodology />

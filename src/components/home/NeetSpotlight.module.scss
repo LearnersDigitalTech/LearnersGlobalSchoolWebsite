@@ -1,0 +1,183 @@
+// Learners NEET spotlight — teal→indigo band matching the Skill100 NEET branding.
+.section {
+    width: 100%;
+    padding: 72px 20px;
+    background:
+        radial-gradient(700px 360px at 85% -20%, rgba(56, 189, 248, .25), transparent 60%),
+        linear-gradient(115deg, #0f766e 0%, #0e7490 52%, #4f46e5 100%);
+    color: #fff;
+    overflow: hidden;
+}
+
+.inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+    gap: 48px;
+    align-items: center;
+
+    @media (max-width: 968px) {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .14);
+    border: 1px solid rgba(255, 255, 255, .18);
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.title {
+    font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 14px;
+}
+
+.hl {
+    color: #fbbf24;
+}
+
+.sub {
+    font-size: clamp(.98rem, 1.6vw, 1.12rem);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, .88);
+    max-width: 56ch;
+    margin: 0 0 26px;
+}
+
+.ctaRow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+
+    @media (max-width: 640px) {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+}
+
+.cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    background: #ffffff;
+    color: #0f766e;
+    font-weight: 800;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .25);
+    transition: transform .18s ease, box-shadow .18s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, .3);
+    }
+}
+
+.ctaNote {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    font-size: .88rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, .8);
+}
+
+// ── stat card ──
+.statCard {
+    justify-self: end;
+    width: 100%;
+    max-width: 360px;
+    border-radius: 20px;
+    padding: 28px 28px 20px;
+    background: rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .18);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .25);
+
+    @media (max-width: 968px) {
+        justify-self: center;
+    }
+}
+
+.statTop {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .85);
+    margin-bottom: 8px;
+}
+
+.statBig {
+    font-size: clamp(3.4rem, 7vw, 4.6rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #fbbf24;
+    text-shadow: 0 8px 34px rgba(251, 191, 36, .35);
+}
+
+.statLabel {
+    margin-top: 8px;
+    font-size: .95rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, .9);
+}
+
+.ecg {
+    display: block;
+    width: 100%;
+    height: 48px;
+    margin-top: 14px;
+
+    path {
+        stroke: #5eead4;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        filter: drop-shadow(0 0 6px rgba(94, 234, 212, .8));
+        stroke-dasharray: 620;
+        stroke-dashoffset: 620;
+        animation: neet-ecg-draw 2.4s ease-out .4s forwards;
+    }
+}
+
+@keyframes neet-ecg-draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ecg path {
+        animation: none;
+        stroke-dashoffset: 0;
+    }
+
+    .cta {
+        transition: none;
+    }
+}
